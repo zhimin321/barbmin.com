@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EPS Finder — Zhimin Barbara Zhang</title>
+<meta name="description" content="EPS Finder — broadcast data management. One production database that drives folders, filenames and delivery documents.">
+<link rel="icon" href="../assets/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../index.css">
+<link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav class="nav on-dark" id="nav">
+  <a class="logo" href="../index.html#home" aria-label="Zhimin Barbara Zhang — home">
+    <img class="logo-mark" src="../assets/logo.png" alt="Zhimin">
+  </a>
+  <div class="nav-desktop">
+    <a class="nav-link" href="../index.html#home">Home</a>
+    <a class="nav-link is-active" href="../index.html#projects">Projects</a>
+    <a class="nav-link" href="../index.html#prompt-lab">Prompt Lab</a>
+    <a class="nav-social" href="https://www.linkedin.com/in/zhimin-zhang-creative" target="_blank" rel="noopener noreferrer"
+       aria-label="Zhimin Barbara Zhang on LinkedIn" title="LinkedIn"><span class="li-mark" aria-hidden="true"></span></a>
+    <button class="nav-pill" type="button" data-contact>Contact</button>
+  </div>
+  <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-overlay" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <a href="../index.html#home">Home</a>
+  <a href="../index.html#projects">Projects</a>
+  <a href="../index.html#prompt-lab">Prompt Lab</a>
+  <button class="mobile-cta" type="button" data-contact>Contact</button>
+  <a class="mobile-social" href="https://www.linkedin.com/in/zhimin-zhang-creative" target="_blank" rel="noopener noreferrer"><span class="li-mark" aria-hidden="true"></span><span>LinkedIn</span></a>
+</div>
+
+<!-- ══════════════ TITLE CARD ══════════════ -->
+<header class="phero">
+  <div class="wrap">
+    <p class="eyebrow"><span class="rule"></span>Project 03</p>
+    <h1>EPS Finder</h1>
+    <p class="sub">Broadcast data management</p>
+    <p class="status"><span class="dot"></span>Currently in development</p>
+
+    <div class="phero-art">
+      <img class="plate" src="../assets/card_scope2.png" alt="Engraving of two mirrored microscopes">
+      <img class="part" src="../assets/card_scope_lensL2.png" alt=""
+           style="left:21.789%;top:28.670%;width:11.927%;height:11.927%;--dur:14s">
+      <img class="part" src="../assets/card_scope_lensR2.png" alt=""
+           style="left:66.972%;top:28.670%;width:11.927%;height:11.927%;--dur:14s">
+      <img class="part is-static" data-axis src="../assets/card_scope_turretL2.png" alt=""
+           style="left:31.651%;top:47.936%;width:16.972%;height:12.385%;--dur:20s;--k:1.4167;--ik:0.7059">
+      <img class="part is-static" data-axis src="../assets/card_scope_turretR2.png" alt=""
+           style="left:52.064%;top:47.936%;width:16.972%;height:12.385%;--dur:20s;--k:1.4167;--ik:0.7059">
+    </div>
+
+    <p class="tagline">Your episodes have metadata. Your folders should know it.</p>
+  </div>
+</header>
+
+<!-- ══════════════ CASE STUDY ══════════════ -->
+<article class="body">
+  <div class="wrap">
+
+    <section class="chapter">
+      <span class="num">01 — The problem</span>
+      <h2>The spreadsheet-to-folder gap</h2>
+      <div class="measure">
+        <p>Large-format TV productions generate enormous amounts of structured data — episode numbers,
+          titles, guest names, timecodes, delivery IDs. That data lives in spreadsheets.</p>
+        <p>Then someone manually types it into folder names, file names, cue sheets, and delivery forms.
+          Every time. For every episode.</p>
+      </div>
+
+      <div class="issues">
+        <div class="issue">
+          <span class="tag">Repetitive setup</span>
+          <h3>Building the same folder tree, 80 times</h3>
+          <p>Every episode needs an identical subfolder structure — Audio, Script, Recording, Exports,
+            Delivery, Documents. For a large variety show with 80+ episodes, that’s hundreds of folders
+            created by hand, each following a strict naming convention.</p>
+        </div>
+        <div class="issue">
+          <span class="tag">Fragile renaming</span>
+          <h3>RX numbers today, TX numbers tomorrow</h3>
+          <p>Episodes are recorded in one order (RX) but broadcast in another (TX). When the TX schedule
+            is confirmed, someone renames hundreds of folders and files by hand — hoping nothing breaks,
+            no path gets missed, and no link goes stale.</p>
+        </div>
+        <div class="issue">
+          <span class="tag">Scattered data</span>
+          <h3>The same metadata, entered five times</h3>
+          <p>Show title, episode number, segment timecodes, MID, delivery number — all needed in folder
+            names, file names, programme cue sheets, music reports and delivery checklists. It lives in
+            different Excel files, and each time it’s re-typed, errors compound.</p>
+        </div>
+        <div class="issue">
+          <span class="tag">No single source</span>
+          <h3>“What’s the TX number for RX61?”</h3>
+          <p>A production coordinator shouldn’t need to open three spreadsheets to answer a basic
+            question. Without a centralised data source, every lookup is a manual search through files
+            that may or may not be up to date.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter">
+      <span class="num">02 — The solution</span>
+      <h2>One database, every downstream artifact</h2>
+      <div class="measure">
+        <p><strong>EPS Finder puts a lightweight production database at the centre of the workflow.</strong>
+          Import the episode data once, then generate every folder, filename and document from that single
+          source.</p>
+        <ol class="steps">
+          <li><strong>Import the episode data.</strong> Drop in a CSV or Excel file with the episode list.
+            EPS Finder maps columns to its data model — RX number, TX number, title, guest, recording date,
+            and any custom fields the production uses.</li>
+          <li><strong>Define the templates.</strong> Folder-structure templates with variables that pull
+            from the database, naming rules for files, and document templates for cue sheets and delivery
+            forms.</li>
+          <li><strong>Generate in one operation.</strong> Select a range of episodes and hit generate.
+            Every folder, correctly named, in seconds — no copy-paste errors, no missing directories, no
+            inconsistent naming.</li>
+          <li><strong>Update once, propagate everywhere.</strong> When TX numbers are confirmed, update
+            them in the database and run a batch rename with full preview — see exactly what will change
+            before anything moves, and roll back if needed.</li>
+        </ol>
+
+        <figure class="codefig">
+          <div class="codeblock is-inline">
+            <div class="codeblock-bar">
+              <span class="file">folder template</span>
+              <span class="lang">Structure</span>
+            </div>
+            <pre class="code"><code><span class="l"><i class="path">{show}_{season}_{rx}_{title}</i>/</span><span class="l"><i class="tree">├── </i>Audio/</span><span class="l"><i class="tree">├── </i>Script/</span><span class="l"><i class="tree">├── </i>Recording/</span><span class="l"><i class="tree">├── </i>Exports/</span><span class="l"><i class="tree">├── </i>Delivery/</span><span class="l"><i class="tree">└── </i>Documents/</span></code></pre>
+          </div>
+          <figcaption>Variables in the template resolve from the database, so one definition
+            generates the whole season.</figcaption>
+        </figure>
+
+        <figure class="codefig">
+          <div class="codeblock is-inline">
+            <div class="codeblock-bar">
+              <span class="file">batch rename</span>
+              <span class="lang">Preview</span>
+            </div>
+            <pre class="code"><code><span class="l"><i class="meta">Rename preview (23 files)</i></span><span class="l"></span><span class="l"><i class="del">- ShowName_S14_RX003_TeamChallenge</i></span><span class="l"><i class="ins">+ ShowName_S14_TX001_TeamChallenge</i></span><span class="l"></span><span class="l"><i class="del">- ShowName_S14_RX017_Finals</i></span><span class="l"><i class="ins">+ ShowName_S14_TX012_Finals</i></span></code></pre>
+          </div>
+          <figcaption>Nothing moves until the change has been reviewed — and every rename is
+            logged, so it can be rolled back.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="chapter">
+      <span class="num">03 — The impact</span>
+      <h2>What changes</h2>
+      <div class="measure">
+        <p>EPS Finder is still in development, so the figures below are what the build is being
+          measured against rather than numbers from a finished deployment.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="fig">~4<em>h</em></span>
+          <span class="cap">Saved per season on folder setup alone. A 60-episode season with six
+            subfolders each is 360 hand-made directories; EPS Finder does it in under a minute.</span>
+        </div>
+        <div class="stat">
+          <span class="fig">0</span>
+          <span class="cap">Manual renaming errors. Every rename is driven by the database, previewed
+            before execution, and logged for audit.</span>
+        </div>
+        <div class="stat">
+          <span class="fig">1</span>
+          <span class="cap">Source of truth for all production data. Entered once, it drives every
+            downstream artifact — and when it changes, it changes in one place.</span>
+        </div>
+      </div>
+
+      <p class="provenance">Targets for the current build. EPS Finder is in development and
+        not yet in production.</p>
+    </section>
+
+    <section class="chapter">
+      <span class="num">04 — Scope</span>
+      <h2>Built for a specific gap</h2>
+      <div class="measure">
+        <p>EPS Finder is not a media asset manager, and it isn’t trying to replace an NLE, a traffic
+          system or an enterprise MAM. It fills the operational gap between production spreadsheets and
+          the filesystem.</p>
+      </div>
+
+      <div class="scope">
+        <div class="scope-col">
+          <h3>What it handles</h3>
+          <ul>
+            <li>Centralised episode and season metadata</li>
+            <li>RX / TX number mapping and lifecycle</li>
+            <li>Template-driven batch folder generation</li>
+            <li>Metadata-driven batch renaming, with preview</li>
+            <li>Programme cue sheet and delivery document generation</li>
+            <li>Fast lookups across episodes, guests and deliveries</li>
+          </ul>
+        </div>
+        <div class="scope-col is-not">
+          <h3>What it doesn’t</h3>
+          <ul>
+            <li>Media ingest, transcoding or playout automation</li>
+            <li>Music rights tracking or music cue sheet generation</li>
+            <li>Video editing or NLE project management</li>
+            <li>Enterprise-scale multi-site facility management</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</article>
+
+<footer class="pfoot">
+  <div class="wrap">
+    <a class="back" href="../index.html#projects">← All projects</a>
+    <span class="mail">© <span id="year"></span> Zhimin Barbara Zhang ·
+      <button type="button" data-contact>zhiminzhangcn@gmail.com</button> ·
+      <a class="foot-li" href="https://www.linkedin.com/in/zhimin-zhang-creative"
+         target="_blank" rel="noopener noreferrer">
+        <span class="li-mark" aria-hidden="true"></span>LinkedIn</a></span>
+  </div>
+</footer>
+
+<!-- ══════════════ CONTACT MODAL ══════════════ -->
+<div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal">
+    <button class="modal-close" id="modal-close" type="button" aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <p class="eyebrow" id="modal-title"><span class="rule"></span>Get in touch</p>
+    <p class="modal-sub">Drop me a line — I read everything.</p>
+    <div class="modal-row">
+      <span class="modal-email">zhiminzhangcn@gmail.com</span>
+      <button class="copy-btn" id="copy-btn" type="button">
+        <span class="copy-label">Copy</span>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <rect x="3.6" y="3.6" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.1"/>
+          <path d="M8.4 1.4H2.7A1.3 1.3 0 0 0 1.4 2.7v5.7" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <a class="modal-mailto" href="mailto:zhiminzhangcn@gmail.com">Open in mail app →</a>
+  </div>
+</div>
+
+<script src="project.js"></script>
+</body>
+</html>
