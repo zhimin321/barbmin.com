@@ -117,7 +117,7 @@ body {
 /* ═══════════════ HERO ═══════════════ */
 .hero {
   position: relative; z-index: 2;
-  height: 100vh; height: 100svh; min-height: 580px;
+  min-height: max(620px, 100svh);
   display: flex; flex-direction: column; overflow: hidden;
   background: transparent;
 }
@@ -148,17 +148,33 @@ body {
 
 .hero-inner {
   position: relative; z-index: 4;
-  flex: 1; display: flex; flex-direction: column;
-  justify-content: flex-start;
-  padding: calc(74px + 3vh) 1.25rem 0;
+  flex: 1; display: grid; align-items: center;
+  grid-template-columns: minmax(0, 1fr); gap: 2.5rem;
+  width: min(100%, 1320px); margin: 0 auto;
+  padding: 112px 1.25rem 2.5rem;
   pointer-events: none;
 }
 @media (min-width: 640px) { .hero-inner { padding-left: 2.25rem; padding-right: 2.25rem; } }
 @media (min-width: 860px) {
-  .hero-inner { justify-content: center; padding: 0 2.25rem 20vh; }
+  .hero-inner { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 2rem; padding: 104px 2.25rem 3rem; }
 }
 @media (min-width: 1100px) { .hero-inner { padding-left: 3rem; padding-right: 3rem; } }
-.hero-copy { max-width: 34rem; pointer-events: auto; }
+.hero-copy { position: relative; isolation: isolate; min-width: 0; max-width: 36rem; pointer-events: auto; }
+.hero-copy::before {
+  content: ""; position: absolute; z-index: -1; inset: -1.5rem;
+  background: var(--paper); filter: blur(16px); pointer-events: none;
+}
+.hero-art { position: relative; min-width: 0; height: clamp(360px, 105vw, 520px); }
+.hero-art .backdrop-layer { align-items: center; overflow: hidden; }
+.hero-art .backdrop-inner { width: min(100%, 348px); }
+@media (min-width: 860px) {
+  .hero-art { height: clamp(420px, 72svh, 660px); }
+  .hero-art .backdrop-inner { width: min(100%, 440px); }
+}
+@media (max-width: 859px) {
+  .hero { background: var(--paper); }
+  .hero-copy { max-width: 38rem; }
+}
 
 .eyebrow {
   display: flex; align-items: center; gap: .75rem;
@@ -169,30 +185,36 @@ body {
 
 .hero-title {
   font-family: var(--font-heading); font-weight: 600; text-wrap: balance;
-  font-size: clamp(42px, 7.1vw, 78px); line-height: 1.0; letter-spacing: -0.018em;
-  margin-bottom: 1.1rem;
+  font-size: clamp(40px, 4.7vw, 68px); line-height: 1.04; letter-spacing: -0.018em;
+  margin-bottom: 1.6rem;
 }
 .hero-title span { display: block; }
 .hero-title .t-2 { margin-left: .04em; }
 .hero-title em { font-style: italic; font-weight: 500; color: var(--terra); }
 
 .hero-desc {
-  font-size: clamp(14px, 1.9vw, 17px); line-height: 1.6; font-weight: 400;
-  color: var(--ink-soft); min-height: 4.8em; margin-bottom: 1.6rem; max-width: 30rem;
+  font-size: clamp(16px, 1.4vw, 18px); line-height: 1.7; font-weight: 400;
+  color: #425965; margin-bottom: 1.5rem; max-width: 28rem;
 }
-.tw-cursor {
-  display: inline-block; width: 2px; height: 1.05em; background: var(--terra);
-  vertical-align: -.14em; margin-left: 2px; animation: blink 1s step-end infinite;
+.hero-focus {
+  display: flex; align-items: center; flex-wrap: wrap; gap: .45rem .65rem;
+  font-size: 14px; line-height: 1.6; color: var(--ink); margin-bottom: 2rem;
 }
-.tw-cursor.done { display: none; }
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+.hero-focus span { color: var(--terra-deep); }
+.hero .eyebrow { color: var(--terra-deep); font-size: 12px; letter-spacing: .16em; margin-bottom: 1.7rem; }
+.hero .btn { font-size: 16px; min-height: 48px; }
+.hero .btn-solid { background: var(--terra-deep); border-color: var(--terra-deep); }
+.hero .btn-solid:hover { background: #8e4026; border-color: #8e4026; }
+.hero .btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
+@media (max-width: 379px) {
+  .hero .eyebrow { gap: .55rem; letter-spacing: .1em; }
+  .hero .eyebrow .rule { width: 24px; }
+  .hero .btn { padding: .85em 1.4em; }
+}
 
 .actions {
-  display: flex; flex-wrap: wrap; gap: .7rem;
-  opacity: 0; transform: translateY(8px);
-  transition: opacity .5s ease, transform .5s ease;
+  display: flex; flex-wrap: wrap; gap: .9rem;
 }
-.actions.show { opacity: 1; transform: translateY(0); }
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center;

@@ -37,20 +37,7 @@
   background-size: 320px 320px;
 }
 
-/* the type column: three-line name, narrow enough to clear the building */
-@media (min-width: 860px) {
-  /* in from the edge; centred between the nav band and the ground's surface */
-  .hero-inner { padding: 96px 2rem 26vh 6vw; }
-  .hero-copy { max-width: min(32rem, 31vw); }
-}
 .eyebrow { margin-bottom: 1.6rem; }
-/* V3.3: "Zhimin Barbara" on one line, "Zhang" on the next */
-.hero-title { font-size: clamp(40px, 4.4vw, 64px); line-height: 1.04; margin-bottom: 1.4rem; text-wrap: initial; }
-.hero-title .t-2 { margin-left: .04em; }
-.hero-desc { font-size: clamp(15px, 1.35vw, 18px); line-height: 1.6; max-width: 24rem; min-height: 4.8em; margin-bottom: 2.2rem; }
-.hero .eyebrow { color: var(--terra-deep); font-size: 13px; letter-spacing: .2em; }   /* 4.6:1 on the paper */
-.hero .btn { font-size: 16px; }
-.actions { gap: .9rem; }
 
 /* V3.1 — the smoke canvas is a fixed layer under the building */
 .scene { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }   /* after .backdrop in the DOM → above it */
@@ -61,16 +48,6 @@
 .pcard:focus-visible .pcard-part.is-static { animation: none; }
 
 /* ═══════════════ V5 — three chapters, one building ═══════════════ */
-/* hero copy sits on the engraving: a soft paper halo keeps the type on paper */
-.hero-copy { position: relative; isolation: isolate; }
-/* V5.1: a uniform translucent pane (80% paper) with soft blurred edges,
-   instead of a radial blob that showed its shape when the hero scrolled */
-.hero-copy::before {
-  content: ""; position: absolute; z-index: -1; inset: -6% -9% -8% -8%;
-  background: rgba(246,236,219,.20); border-radius: 28px;   /* V5.4: 20% to try */
-  filter: blur(14px);
-  pointer-events: none;
-}
 /* the Lab is now a dark chapter on verdigris, transparent like Projects so
    the fixed blueprint shows through; cream cards pin onto the drawing */
 .section-lab { background: transparent; overflow: visible; color: #faf3e4; }

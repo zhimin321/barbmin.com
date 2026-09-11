@@ -199,33 +199,18 @@
     return ok;
   }
 
-  /* ═══════════════ TYPEWRITER ═══════════════ */
-  var TW_TEXT = 'A broadcast AI specialist building practical tools that automate ' +
-                'repetition and empower operators.';
-  var twOut = $('.tw-text'), twCursor = $('.tw-cursor');
-  (function typewriter(text, speed, startDelay) {
-    if (REDUCED) { twOut.textContent = text; twCursor.classList.add('done'); return; }
-    setTimeout(function () {
-      var i = 0;
-      var id = setInterval(function () {
-        i += 1; twOut.textContent = text.slice(0, i);
-        if (i >= text.length) { clearInterval(id); twCursor.classList.add('done'); }
-      }, speed);
-    }, startDelay);
-  })(TW_TEXT, 21, 500);
-  setTimeout(function () { $('#actions').classList.add('show'); }, 400);
-
   /* ═══════════════ HERO ELEMENTS ═══════════════ */
   var heroEl = $('.hero');
+  var heroArt = $('.hero-art');
   var pct = function (v, total) { return (v / total) * 100 + '%'; };
 
   /* ═══════════════ BACKDROP GEARS ═══════════════ */
   var backdropEl = $('#backdrop'), pageWash = $('#page-wash');
-  var bdInners = $$('.backdrop-inner', backdropEl);
-  var bdDark = $('.backdrop-layer.is-dark', backdropEl);
+  var bdInners = $$('.backdrop-inner');
+  var bdDark = $('.backdrop-layer.is-dark', heroArt);
   var bdLight = $('.backdrop-layer.is-light', backdropEl);
-  var backdropPlate = $('.backdrop-plate', backdropEl);
-  var bdInnerDark = $('.backdrop-layer.is-dark .backdrop-inner', backdropEl);
+  var backdropPlate = $('.backdrop-plate', heroArt);
+  var bdInnerDark = $('.backdrop-inner', heroArt);
   var bdInnerLight = $('.backdrop-layer.is-light .backdrop-inner', backdropEl);
   var bdInnerBlue = $('.backdrop-layer.is-blue .backdrop-inner', backdropEl);
   var bdBlue = $('.backdrop-layer.is-blue', backdropEl);
@@ -312,18 +297,15 @@
        from that would zero the geometry, so keep the last good layout. */
     if (r.width < 2 || r.height < 2) return;
     S.W = r.width; S.H = r.height;
-    var mobile = S.W < 860;
-
-    /* V5 — one building, three chapters: every plate is the full viewport
-       height and centred. The hero plate rests centred; the Projects plate is
-       pre-offset by what its tear + parallax will lift it; the Lab plate rises
-       into place from below, so it rests centred too. */
+    /* The hero has its own responsive art slot. The other chapters retain
+       their fixed backdrop geometry until their separate design step. */
+    var art = heroArt.getBoundingClientRect();
+    bdInnerDark.style.width = Math.min(art.width, art.height * BUILDING.w / BUILDING.h) + 'px';
     var vh = window.innerHeight || S.H;
     var bwL = clamp(vh * 1.0 * BUILDING.w / BUILDING.h, 200, S.W * 0.9);
     var plateHL = bwL * BUILDING.h / BUILDING.w;
     var centred = Math.max(0, (vh - plateHL) / 2);
-    bdInnerDark.style.width = bdInnerLight.style.width = bwL + 'px';
-    bdInnerDark.style.marginBottom = centred + 'px';
+    bdInnerLight.style.width = bwL + 'px';
     bdInnerLight.style.marginBottom = centred + 'px';
     /* the Lab's machine is nearly square: 85% of the viewport height, centred */
     var bwB = clamp(vh * 0.85 * LAB.w / LAB.h, 200, S.W * 0.92);
@@ -406,7 +388,7 @@
 
   /* ═══════════════ BACKDROP: DRIFT, PARALLAX, HANDOVER ═══════════════ */
   /* V3: the building is the hero centrepiece, no longer a distant backdrop */
-  var HERO_OPACITY = 0.55;          /* V5: a mid-strength engraving the type can sit on */
+  var HERO_OPACITY = 0.78;          /* The engraving now has a dedicated area clear of the copy. */
   var CREAM = [246, 236, 219], SEPIA = [74, 56, 41], VERD = [42, 72, 66];   /* verdigris: the Lab (V5.3: a shade darker) */
   /* Endpoints are pushed to the extremes on purpose: a muted body grey has no
      contrast headroom against a ground that passes through mid-tone. */
@@ -473,8 +455,9 @@
        the old downward pull did. Opacity and wash are untouched. */
     var ty = idleY - tear * UP - (window.scrollY || 0) * 0.055;
     var sc = 1;
-    var t = 'translate3d(' + idleX.toFixed(2) + 'px,' + ty.toFixed(2) + 'px,0) scale(1,' + (1 + force).toFixed(4) + ')';
-    bdInnerDark.style.transform = t;
+    /* The hero already scrolls in document flow. Keep its local drift small
+       rather than applying the fixed plate's additional upward pull. */
+    bdInnerDark.style.transform = 'translate3d(' + idleX.toFixed(2) + 'px,' + idleY.toFixed(2) + 'px,0)';
     /* Projects plate: dragged out from below by the hero's departure (same
        curve, so the two move as one chain), rests centred through Projects,
        then is yanked off the top itself as the Lab arrives */
