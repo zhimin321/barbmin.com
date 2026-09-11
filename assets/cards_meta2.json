@@ -1,0 +1,76 @@
+{
+ "parts": {
+  "press_wheel": {
+   "panel": "press",
+   "sx": 56,
+   "sy": 147,
+   "sw": 104,
+   "sh": 158,
+   "cx": 108.0,
+   "cy": 226.0,
+   "k": 0.6351,
+   "ik": 1.5746,
+   "css": "left:12.844%;top:33.716%;width:23.853%;height:36.239%"
+  },
+  "watch_gear": {
+   "panel": "watch",
+   "sx": 225,
+   "sy": 252,
+   "sw": 60,
+   "sh": 60,
+   "cx": 255.0,
+   "cy": 282.0,
+   "k": 1.0,
+   "ik": 1.0,
+   "css": "left:51.606%;top:57.798%;width:13.761%;height:13.761%"
+  },
+  "scope_lensL": {
+   "panel": "scope",
+   "sx": 95,
+   "sy": 125,
+   "sw": 52,
+   "sh": 52,
+   "cx": 121.0,
+   "cy": 151.0,
+   "k": 1.0,
+   "ik": 1.0,
+   "css": "left:21.789%;top:28.670%;width:11.927%;height:11.927%"
+  },
+  "scope_lensR": {
+   "panel": "scope",
+   "sx": 292,
+   "sy": 125,
+   "sw": 52,
+   "sh": 52,
+   "cx": 318.0,
+   "cy": 151.0,
+   "k": 1.0,
+   "ik": 1.0,
+   "css": "left:66.972%;top:28.670%;width:11.927%;height:11.927%"
+  },
+  "scope_turretL": {
+   "panel": "scope",
+   "sx": 138,
+   "sy": 209,
+   "sw": 74,
+   "sh": 54,
+   "cx": 175,
+   "cy": 236,
+   "k": 1.4167,
+   "ik": 0.7059,
+   "css": "left:31.651%;top:47.936%;width:16.972%;height:12.385%"
+  },
+  "scope_turretR": {
+   "panel": "scope",
+   "sx": 227,
+   "sy": 209,
+   "sw": 74,
+   "sh": 54,
+   "cx": 264,
+   "cy": 236,
+   "k": 1.4167,
+   "ik": 0.7059,
+   "css": "left:52.064%;top:47.936%;width:16.972%;height:12.385%"
+  }
+ }
+}

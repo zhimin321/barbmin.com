@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What is 24+1? — Zhimin Barbara Zhang</title>
+<meta name="description" content="24+1 — broadcast timecode maths without the mental gymnastics. Add a delivery gap, round to the nearest 0 or 5, and carry every rollover correctly.">
+<link rel="icon" href="../assets/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../index.css">
+<link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav class="nav on-dark" id="nav">
+  <a class="logo" href="../index.html#home" aria-label="Zhimin Barbara Zhang — home">
+    <img class="logo-mark" src="../assets/logo.png" alt="Zhimin">
+  </a>
+  <div class="nav-desktop">
+    <a class="nav-link" href="../index.html#home">Home</a>
+    <a class="nav-link is-active" href="../index.html#projects">Projects</a>
+    <a class="nav-link" href="../index.html#prompt-lab">Prompt Lab</a>
+    <a class="nav-social" href="https://www.linkedin.com/in/zhimin-zhang-creative" target="_blank" rel="noopener noreferrer"
+       aria-label="Zhimin Barbara Zhang on LinkedIn" title="LinkedIn"><span class="li-mark" aria-hidden="true"></span></a>
+    <button class="nav-pill" type="button" data-contact>Contact</button>
+  </div>
+  <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-overlay" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <a href="../index.html#home">Home</a>
+  <a href="../index.html#projects">Projects</a>
+  <a href="../index.html#prompt-lab">Prompt Lab</a>
+  <button class="mobile-cta" type="button" data-contact>Contact</button>
+  <a class="mobile-social" href="https://www.linkedin.com/in/zhimin-zhang-creative" target="_blank" rel="noopener noreferrer"><span class="li-mark" aria-hidden="true"></span><span>LinkedIn</span></a>
+</div>
+
+<!-- ══════════════ TITLE CARD ══════════════ -->
+<header class="phero">
+  <div class="wrap">
+    <p class="eyebrow"><span class="rule"></span>Project 02</p>
+    <h1>What is 24+1?</h1>
+    <p class="sub">Broadcast timecode maths, without the mental gymnastics.</p>
+
+    <div class="phero-art">
+      <img class="plate" src="../assets/card_watch2.png" alt="Engraving of a pocket watch with a cracked dial">
+      <img class="part is-static" src="../assets/card_watch_gear2.png" alt=""
+           style="left:51.606%;top:57.798%;width:13.761%;height:13.761%;--dur:9s">
+      <svg viewBox="0 0 436 436" aria-hidden="true">
+        <g class="hand" style="--a:-147.3deg;--hd:144s">
+          <path d="M-7 0 L12 -1.7 L26 -4.7 L46 -2.2 L61 0 L46 2.2 L26 4.7 L12 1.7 Z"/>
+        </g>
+        <g class="hand" style="--a:-31.1deg;--hd:12s">
+          <path d="M-7 0 L14 -1.3 L30 -3.5 L78 -1.5 L99 0 L78 1.5 L30 3.5 L14 1.3 Z"/>
+        </g>
+      </svg>
+    </div>
+
+    <p class="tagline">The frame where one second rolls into the next.</p>
+  </div>
+</header>
+
+<!-- ══════════════ CASE STUDY ══════════════ -->
+<article class="body">
+  <div class="wrap">
+
+    <section class="chapter">
+      <span class="num">01 — The problem</span>
+      <h2>The sums that don’t fit a calculator</h2>
+      <div class="measure">
+        <p>Broadcast delivery runs on timecode. Program durations and segment lengths all have to be
+          worked out to the exact frame — and off-the-shelf timecode calculators handle the everyday
+          sums fine. Where they fall short is the delivery-specific rules.</p>
+        <p>Many delivery systems require each segment to be spaced by a fixed gap — say 5 or 10 seconds
+          — and then rounded to the nearest 0 or 5. That sounds trivial until the numbers roll over: a
+          value like <strong>00:24:48:00</strong> or <strong>00:19:59:00</strong> has to carry across
+          seconds, minutes, and frame boundaries all at once.</p>
+        <p>In practice, operators end up doing this in their head, under deadline — and it’s exactly
+          the kind of maths that’s easy to get wrong, and costly to catch later.</p>
+      </div>
+
+      <div class="examples">
+        <div class="example">
+          <span class="row"><span>00:24:48:00</span><span class="arrow">→</span><span class="out">00:25:00:00</span></span>
+          <span class="cap">48 seconds carries into the next minute.</span>
+        </div>
+        <div class="example">
+          <span class="row"><span>00:19:59:00</span><span class="arrow">→</span><span class="out">00:20:10:00</span></span>
+          <span class="cap">The awkward one, sitting right on :59.</span>
+        </div>
+      </div>
+      <p class="exnote">Both worked through 24+1’s rounding routine — a 10-second gap,
+        rounded up to the nearest 5.</p>
+    </section>
+
+    <section class="chapter">
+      <span class="num">02 — The solution</span>
+      <h2>Paste, add, round, copy</h2>
+      <div class="measure">
+        <p><strong>24+1 is a focused utility built for that exact gap.</strong> Paste a timecode into the
+          box, choose the frame rate, and pick how many seconds to add (5, 10, or whatever the spec calls
+          for).</p>
+        <p>24+1 adds the gap, rounds the result to the nearest 0 or 5, and handles every second, minute,
+          hour and frame-rate rollover correctly — including the awkward cases that sit right on
+          <strong>:59</strong>. One click copies the finished timecode straight into the editing software
+          or cue sheet, so there’s no retyping and no carry errors.</p>
+
+        <figure class="codefig">
+          <div class="codeblock is-inline">
+            <div class="codeblock-bar">
+              <span class="file">rounded_timecode.py</span>
+              <span class="lang">Python</span>
+            </div>
+            <pre class="code"><code><span class="l"><i class="kw">def</i> <i class="fn">rounded_timecode</i><i class="op">(</i><i class="var">tc</i><i class="op">):</i></span><span class="l">    <i class="var">parts</i> <i class="op">=</i> <i class="var">tc</i><i class="op">.</i><i class="fn">split</i><i class="op">(</i><i class="str">&#x27;:&#x27;</i><i class="op">)</i></span><span class="l"></span><span class="l">    <i class="kw">if</i> <i class="fn">len</i><i class="op">(</i><i class="var">parts</i><i class="op">)</i> <i class="op">!=</i> <i class="num">4</i><i class="op">:</i></span><span class="l">        <i class="kw">return</i> <i class="str">&quot;Invalid timecode format&quot;</i></span><span class="l"></span><span class="l">    <i class="kw">try</i><i class="op">:</i></span><span class="l">        <i class="var">hh</i><i class="op">,</i> <i class="var">mm</i><i class="op">,</i> <i class="var">ss</i><i class="op">,</i> <i class="var">ff</i> <i class="op">=</i> <i class="fn">map</i><i class="op">(</i><i class="fn">int</i><i class="op">,</i> <i class="var">parts</i><i class="op">)</i></span><span class="l">    <i class="kw">except</i> <i class="fn">ValueError</i><i class="op">:</i></span><span class="l">        <i class="kw">return</i> <i class="str">&quot;Invalid numbers in timecode&quot;</i></span><span class="l"></span><span class="l">    <i class="var">total_seconds</i> <i class="op">=</i> <i class="var">hh</i> <i class="op">*</i> <i class="num">3600</i> <i class="op">+</i> <i class="var">mm</i> <i class="op">*</i> <i class="num">60</i> <i class="op">+</i> <i class="var">ss</i></span><span class="l"></span><span class="l">    <i class="com"># Add 10 seconds</i></span><span class="l">    <i class="var">total_seconds</i> <i class="op">+=</i> <i class="num">10</i></span><span class="l"></span><span class="l">    <i class="com"># Round UP to nearest 5</i></span><span class="l">    <i class="var">remainder</i> <i class="op">=</i> <i class="var">total_seconds</i> <i class="op">%</i> <i class="num">5</i></span><span class="l">    <i class="kw">if</i> <i class="var">remainder</i> <i class="op">!=</i> <i class="num">0</i><i class="op">:</i></span><span class="l">        <i class="var">total_seconds</i> <i class="op">+=</i> <i class="op">(</i><i class="num">5</i> <i class="op">-</i> <i class="var">remainder</i><i class="op">)</i></span><span class="l"></span><span class="l">    <i class="var">hh</i> <i class="op">=</i> <i class="var">total_seconds</i> <i class="op">//</i> <i class="num">3600</i></span><span class="l">    <i class="var">mm</i> <i class="op">=</i> <i class="op">(</i><i class="var">total_seconds</i> <i class="op">%</i> <i class="num">3600</i><i class="op">)</i> <i class="op">//</i> <i class="num">60</i></span><span class="l">    <i class="var">ss</i> <i class="op">=</i> <i class="var">total_seconds</i> <i class="op">%</i> <i class="num">60</i></span><span class="l"></span><span class="l">    <i class="kw">return</i> f&quot;<i class="op">{</i><i class="var">hh</i><i class="op">:</i>02<i class="op">}</i>:<i class="op">{</i><i class="var">mm</i><i class="op">:</i>02<i class="op">}</i>:<i class="op">{</i><i class="var">ss</i><i class="op">:</i>02<i class="op">}</i>:00&quot;</span><span class="l"></span><span class="l"></span><span class="l"><i class="kw">def</i> <i class="fn">main</i><i class="op">():</i></span><span class="l">    <i class="fn">print</i><i class="op">(</i><i class="str">&quot;Enter timecode HH:MM:SS:FF (type q to exit)\n&quot;</i><i class="op">)</i></span><span class="l"></span><span class="l">    <i class="kw">while</i> <i class="kw">True</i><i class="op">:</i></span><span class="l">        <i class="var">timecode</i> <i class="op">=</i> <i class="fn">input</i><i class="op">(</i><i class="str">&quot;timecode: &quot;</i><i class="op">).</i><i class="fn">strip</i><i class="op">()</i></span><span class="l"></span><span class="l">        <i class="kw">if</i> <i class="kw">not</i> <i class="var">timecode</i><i class="op">:</i></span><span class="l">            <i class="kw">continue</i></span><span class="l"></span><span class="l">        <i class="kw">if</i> <i class="var">timecode</i><i class="op">.</i><i class="fn">lower</i><i class="op">()</i> <i class="op">==</i> <i class="str">&quot;q&quot;</i><i class="op">:</i></span><span class="l">            <i class="fn">print</i><i class="op">(</i><i class="str">&quot;Exiting program...&quot;</i><i class="op">)</i></span><span class="l">            <i class="kw">break</i></span><span class="l"></span><span class="l">        <i class="fn">print</i><i class="op">(</i>f&#x27;\n<i class="op">{</i><i class="fn">rounded_timecode</i><i class="op">(</i><i class="var">timecode</i><i class="op">)}</i>\n&#x27;<i class="op">)</i></span></code></pre>
+          </div>
+          <figcaption>The rounding routine: parse, add the gap, round up to the nearest 5,
+            then rebuild the timecode across every second, minute and hour boundary.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="chapter">
+      <span class="num">03 — The impact</span>
+      <h2>One less thing to get wrong</h2>
+
+      <div class="points">
+        <div class="point">
+          <span class="n">01</span>
+          <p>Takes the mental math out of the most error-prone step in delivery prep.</p>
+        </div>
+        <div class="point">
+          <span class="n">02</span>
+          <p>Cuts delivery time by turning a stop-and-recalculate moment into a paste-and-copy one.</p>
+        </div>
+        <div class="point">
+          <span class="n">03</span>
+          <p>Reduces mistakes on exactly the rollover edge cases where they’re most likely — and most
+            expensive to fix downstream.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</article>
+
+<footer class="pfoot">
+  <div class="wrap">
+    <a class="back" href="../index.html#projects">← All projects</a>
+    <span class="mail">© <span id="year"></span> Zhimin Barbara Zhang ·
+      <button type="button" data-contact>zhiminzhangcn@gmail.com</button> ·
+      <a class="foot-li" href="https://www.linkedin.com/in/zhimin-zhang-creative"
+         target="_blank" rel="noopener noreferrer">
+        <span class="li-mark" aria-hidden="true"></span>LinkedIn</a></span>
+  </div>
+</footer>
+
+<!-- ══════════════ CONTACT MODAL ══════════════ -->
+<div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal">
+    <button class="modal-close" id="modal-close" type="button" aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <p class="eyebrow" id="modal-title"><span class="rule"></span>Get in touch</p>
+    <p class="modal-sub">Drop me a line — I read everything.</p>
+    <div class="modal-row">
+      <span class="modal-email">zhiminzhangcn@gmail.com</span>
+      <button class="copy-btn" id="copy-btn" type="button">
+        <span class="copy-label">Copy</span>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <rect x="3.6" y="3.6" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.1"/>
+          <path d="M8.4 1.4H2.7A1.3 1.3 0 0 0 1.4 2.7v5.7" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <a class="modal-mailto" href="mailto:zhiminzhangcn@gmail.com">Open in mail app →</a>
+  </div>
+</div>
+
+<script src="project.js"></script>
+</body>
+</html>
