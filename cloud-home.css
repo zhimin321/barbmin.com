@@ -1,0 +1,182 @@
+/* Cloud B, step 1: scoped navigation and hero. Legacy reading areas stay intact. */
+.cloud-home {
+  --cloud-ink: #111820;
+  --cloud-blue: #0062e6;
+}
+.cloud-home .cloud-nav {
+  color: var(--cloud-ink);
+  min-height: 76px;
+  padding: 12px max(24px, calc((100vw - 1200px) / 2));
+}
+.cloud-home .cloud-nav.is-stuck,
+.cloud-home .cloud-nav.menu-open {
+  background: rgba(255, 255, 255, .97);
+  box-shadow: 0 1px 0 #dce5ed;
+}
+.cloud-home .cloud-wordmark {
+  min-height: 44px;
+  color: var(--cloud-ink);
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -.045em;
+}
+.cloud-home .cloud-nav .nav-desktop { gap: 32px; }
+.cloud-home .cloud-nav .nav-link,
+.cloud-home .cloud-nav .nav-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  color: var(--cloud-ink);
+  font-size: 16px;
+  font-weight: 400;
+  padding: 0;
+}
+.cloud-home .cloud-nav .nav-social { min-width: 44px; }
+.cloud-home .cloud-nav .nav-link::after { background: var(--cloud-blue); bottom: 5px; }
+.cloud-home .cloud-nav .nav-link:hover,
+.cloud-home .cloud-nav .nav-social:hover { color: var(--cloud-blue); }
+.cloud-home .cloud-nav .burger {
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.cloud-home .cloud-nav .burger span { background: var(--cloud-ink); }
+.cloud-home .cloud-menu {
+  background: #f5fbff;
+  visibility: hidden;
+  padding: 100px 28px 32px;
+  gap: 20px;
+  overflow-y: auto;
+}
+.cloud-home .cloud-menu.open { visibility: visible; }
+.cloud-home .cloud-menu a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--font-body);
+  font-size: 28px;
+  font-style: normal;
+  color: var(--cloud-ink);
+}
+.cloud-home .cloud-menu .mobile-social { font-size: 18px; gap: 12px; }
+.cloud-home .cloud-hero {
+  position: relative;
+  isolation: isolate;
+  color: var(--cloud-ink);
+  background: #cbe9fc url('assets/cloud-b/sky.svg') center / 100% 100% no-repeat;
+  padding: 90px 24px 40px;
+  min-height: 660px;
+  min-height: clamp(580px, 68svh, 740px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.cloud-home .cloud-hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+}
+.cloud-home .cloud-character {
+  position: relative;
+  width: 300px;
+  max-width: 85%;
+  aspect-ratio: 36 / 23;
+  margin: 0 auto 4px;
+}
+.cloud-home .cloud-character img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.cloud-home .cloud-character .cloud-body { inset: 4% 7% auto; width: 86%; height: 86%; }
+.cloud-home .cloud-eyebrow {
+  margin: 0 0 24px;
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+}
+.cloud-home .cloud-title {
+  font-family: var(--font-body);
+  font-size: clamp(44px, 4.7vw, 68px);
+  font-weight: 700;
+  letter-spacing: -.05em;
+  line-height: 1.08;
+  margin: 0;
+}
+.cloud-home .cloud-title span { display: block; }
+.cloud-home .cloud-name {
+  margin: 18px 0 22px;
+  font-size: clamp(19px, 2vw, 26px);
+  line-height: 1.5;
+  letter-spacing: -.025em;
+}
+.cloud-home .cloud-explore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: var(--cloud-blue);
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: background-color .18s ease;
+}
+.cloud-home .cloud-explore:hover { background: #004fbd; }
+.cloud-home .cloud-sky-wisp {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  width: min(35vw, 470px);
+  height: auto;
+  opacity: .58;
+}
+.cloud-home .cloud-sky-wisp.is-left { left: -12%; bottom: -20%; transform: rotate(12deg); }
+.cloud-home .cloud-sky-wisp.is-right { right: -13%; top: 6%; transform: rotate(-15deg) scaleX(-1); opacity: .36; }
+.cloud-home .cloud-nav :focus-visible,
+.cloud-home .cloud-menu :focus-visible,
+.cloud-home .cloud-explore:focus-visible {
+  outline: 3px solid #004ba8;
+  outline-offset: 5px;
+}
+/* Temporary static grounds replace the removed fixed scene. Step 2 owns these sections. */
+.cloud-home .section-projects { background: var(--paper); }
+.cloud-home .section-lab { background: #203b38; }
+/* Closed legacy dialogs must not enter the new navigation's keyboard sequence. */
+.cloud-home .modal-backdrop:not(.open),
+.cloud-home .sheet-backdrop:not(.open) { visibility: hidden; }
+.cloud-home .modal-close { width: 44px; height: 44px; top: 4px; right: 4px; }
+.cloud-home .copy-btn { min-height: 44px; }
+.cloud-home .modal-mailto { min-height: 44px; display: inline-flex; align-items: center; }
+.cloud-home .modal :focus-visible { outline: 3px solid #004ba8; outline-offset: 3px; }
+@media (max-width: 859px) {
+  .cloud-home .cloud-nav { min-height: 68px; padding: 10px 24px; }
+  .cloud-home .cloud-hero { padding-top: 84px; padding-bottom: 44px; }
+}
+@media (max-width: 599px) {
+  .cloud-home .cloud-nav { padding-inline: 20px; }
+  .cloud-home .cloud-wordmark { font-size: 26px; }
+  .cloud-home .cloud-hero { min-height: 600px; padding-inline: 20px; }
+  .cloud-home .cloud-character { width: 260px; margin-bottom: 8px; }
+  .cloud-home .cloud-eyebrow { font-size: 11px; letter-spacing: .2em; margin-bottom: 22px; }
+  .cloud-home .cloud-title { font-size: clamp(34px, 8.9vw, 44px); letter-spacing: -.05em; }
+  .cloud-home .cloud-name { font-size: 19px; margin-top: 20px; }
+  .cloud-home .cloud-sky-wisp { width: 230px; }
+  .cloud-home .cloud-sky-wisp.is-left { left: -140px; bottom: -30px; }
+  .cloud-home .cloud-sky-wisp.is-right { right: -165px; top: 100px; }
+  .cloud-home .modal { padding: 32px 20px 20px; }
+}

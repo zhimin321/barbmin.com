@@ -7,6 +7,7 @@
 
   var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var EMAIL = 'zhiminzhangcn@gmail.com';
+  var CLOUD_HOME = document.body.classList.contains('cloud-home');
 
   /* V3 hero: the factory building at the centre of a geometric field that the
      cursor pushes apart (field.js). The duck and the gear river are gone; their
@@ -60,10 +61,40 @@
     overlay.classList.toggle('open', open);
     nav.classList.toggle('menu-open', open);
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (CLOUD_HOME) {
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      if (open) $('a', overlay).focus();
+      else if (overlay.contains(document.activeElement)) burger.focus();
+    }
     document.body.style.overflow = open ? 'hidden' : '';
   }
   burger.addEventListener('click', function () { setMenu(!overlay.classList.contains('open')); });
-  $$('a', overlay).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  $$('a:not([data-contact])', overlay).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  if (CLOUD_HOME) {
+    window.matchMedia('(min-width: 860px)').addEventListener('change', function (e) {
+      if (e.matches && overlay.classList.contains('open')) {
+        setMenu(false);
+        $('.cloud-wordmark').focus();
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab') return;
+      var activeDialog = modal.classList.contains('open') ? modal :
+        sheet.classList.contains('open') ? sheet :
+        overlay.classList.contains('open') ? overlay : null;
+      if (!activeDialog) return;
+      var stops = $$('a[href], button, [tabindex="0"]', activeDialog).filter(function (el) {
+        return !el.disabled && el.getClientRects().length;
+      });
+      if (activeDialog === overlay) stops.unshift(burger);
+      var first = stops[0], last = stops[stops.length - 1];
+      if (e.shiftKey && (document.activeElement === first || !stops.includes(document.activeElement))) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && (document.activeElement === last || !stops.includes(document.activeElement))) {
+        e.preventDefault(); first.focus();
+      }
+    });
+  }
 
   /* active nav link follows the section in view */
   var navLinks = $$('.nav-link');
@@ -86,7 +117,7 @@
   var lastFocus = null;
 
   function openModal() {
-    lastFocus = document.activeElement;
+    lastFocus = CLOUD_HOME && overlay.contains(document.activeElement) ? burger : document.activeElement;
     setMenu(false);
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -97,7 +128,10 @@
     document.body.style.overflow = '';
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
-  $$('[data-contact]').forEach(function (b) { b.addEventListener('click', openModal); });
+  $$('[data-contact]').forEach(function (b) { b.addEventListener('click', function (e) {
+    e.preventDefault();
+    openModal();
+  }); });
   $('#modal-close').addEventListener('click', closeModal);
   modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', function (e) {
@@ -198,6 +232,9 @@
     document.body.removeChild(ta);
     return ok;
   }
+
+  /* Cloud B keeps shared interactions above, without starting the removed scene. */
+  if (CLOUD_HOME) return;
 
   /* ═══════════════ HERO ELEMENTS ═══════════════ */
   var heroEl = $('.hero');
