@@ -113,7 +113,7 @@
   }
 
   /* ═══════════════ CONTACT MODAL ═══════════════ */
-  var modal = $('#modal'), copyBtn = $('#copy-btn'), copyLabel = $('.copy-label', copyBtn);
+  var modal = $('#modal'), copyBtn = $('#copy-btn');
   var lastFocus = null;
 
   function openModal() {
@@ -142,6 +142,7 @@
   });
 
   function fallbackCopy() {
+    var previousFocus = document.activeElement;
     var ta = document.createElement('textarea');
     ta.value = EMAIL; ta.setAttribute('readonly', '');
     ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
@@ -149,17 +150,22 @@
     var ok = false;
     try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
     document.body.removeChild(ta);
+    if (previousFocus && previousFocus.focus) previousFocus.focus();
     return ok;
   }
-  copyBtn.addEventListener('click', function () {
-    var done = function (ok) {
-      copyBtn.classList.toggle('copied', ok);
-      copyLabel.textContent = ok ? 'Copied' : 'Press ⌘C';
-      setTimeout(function () { copyBtn.classList.remove('copied'); copyLabel.textContent = 'Copy'; }, 1900);
-    };
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(EMAIL).then(function () { done(true); }, function () { done(fallbackCopy()); });
-    } else { done(fallbackCopy()); }
+  $$('[data-copy-email]').forEach(function (button) {
+    var label = $('.copy-label', button), idleLabel = label.textContent, resetTimer;
+    button.addEventListener('click', function () {
+      var done = function (ok) {
+        clearTimeout(resetTimer);
+        button.classList.toggle('copied', ok);
+        label.textContent = ok ? 'Copied' : 'Select email to copy';
+        resetTimer = setTimeout(function () { button.classList.remove('copied'); label.textContent = idleLabel; }, 1900);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(EMAIL).then(function () { done(true); }, function () { done(fallbackCopy()); });
+      } else { done(fallbackCopy()); }
+    });
   });
 
   $('#year').textContent = new Date().getFullYear();

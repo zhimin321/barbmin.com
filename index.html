@@ -9,10 +9,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="index.css">
-<link rel="stylesheet" href="motion.css">
 <link rel="stylesheet" href="cloud-home.css">
 </head>
 <body class="cloud-home">
@@ -52,156 +51,81 @@
   </div>
 </section>
 
-<!-- ══════════════ PROJECTS ══════════════ -->
-<section class="section section-projects" id="projects">
-  <div class="section-inner">
-    <p class="eyebrow"><span class="rule"></span>01 — Selected work</p>
-    <h2>Projects</h2>
-    <p class="section-lead">Applied AI inside live broadcast pipelines — metadata, media logistics and the
+<!-- Cloud B step 2: project links and existing prompt entry points. -->
+<section class="cloud-section cloud-projects" id="projects" aria-labelledby="projects-title">
+  <div class="cloud-container">
+    <h2 id="projects-title">Selected work</h2>
+    <p class="cloud-section-lead">Applied AI inside live broadcast pipelines — metadata, media logistics and the
       unglamorous plumbing that makes a playout day survivable.</p>
-    <div class="pcards">
-      <a class="pcard" href="projects/pinky-saver.html">
-        <span class="pcard-art">
-          <img class="pcard-plate" src="assets/card_press2.png" alt="" loading="lazy">
-          <img class="pcard-part" data-axis src="assets/card_press_wheel2.png" alt="" loading="lazy" style="left:12.844%;top:33.716%;width:23.853%;height:36.239%;--dur:4.5s;--k:0.6351;--ik:1.5746">
-        </span>
+    <div class="cloud-project-grid">
+      <a class="cloud-project" href="projects/pinky-saver.html">
         <h3>Pinky Saver</h3>
         <p>Broadcast auto caption generator</p>
-        <span class="pcard-more">Read more
-          <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
-            <path d="M1 5h11M8.5 1.5 12 5l-3.5 3.5" stroke="currentColor" stroke-width="1.4"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
+        <img class="cloud-project-doodle" src="assets/cloud-b/pinky-note.svg" width="240" height="140" alt="" loading="lazy">
+        <span class="cloud-text-link">View project <span aria-hidden="true">↗</span></span>
       </a>
-      <a class="pcard" href="projects/what-is-24-1.html">
-        <span class="pcard-art">
-          <img class="pcard-plate" src="assets/card_watch2.png" alt="" loading="lazy">
-          <img class="pcard-part is-static" src="assets/card_watch_gear2.png" alt="" loading="lazy" style="left:51.606%;top:57.798%;width:13.761%;height:13.761%;--dur:3s">
-        <svg class="pcard-hands" viewBox="0 0 436 436" aria-hidden="true">
-          <g class="hand hour" style="--a:-147.3deg">
-            <path d="M-7 0 L12 -1.7 L26 -4.7 L46 -2.2 L61 0 L46 2.2 L26 4.7 L12 1.7 Z"/>
-          </g>
-          <g class="hand minute" style="--a:-31.1deg">
-            <path d="M-7 0 L14 -1.3 L30 -3.5 L78 -1.5 L99 0 L78 1.5 L30 3.5 L14 1.3 Z"/>
-          </g>
-        </svg>
-        </span>
+      <a class="cloud-project" href="projects/what-is-24-1.html">
         <h3>What is 24+1?</h3>
         <p>Broadcast timecode calculator</p>
-        <span class="pcard-more">Read more
-          <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
-            <path d="M1 5h11M8.5 1.5 12 5l-3.5 3.5" stroke="currentColor" stroke-width="1.4"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
+        <img class="cloud-project-doodle" src="assets/cloud-b/timecode-board.svg" width="240" height="140" alt="" loading="lazy">
+        <span class="cloud-text-link">View project <span aria-hidden="true">↗</span></span>
       </a>
-      <a class="pcard" href="projects/eps-finder.html">
-        <span class="pcard-art">
-          <img class="pcard-plate" src="assets/card_scope2.png" alt="" loading="lazy">
-          <img class="pcard-part" src="assets/card_scope_lensL2.png" alt="" loading="lazy" style="left:21.789%;top:28.670%;width:11.927%;height:11.927%;--dur:5s">
-          <img class="pcard-part" src="assets/card_scope_lensR2.png" alt="" loading="lazy" style="left:66.972%;top:28.670%;width:11.927%;height:11.927%;--dur:5s">
-          <img class="pcard-part is-static" data-axis src="assets/card_scope_turretL2.png" alt="" loading="lazy" style="left:31.651%;top:47.936%;width:16.972%;height:12.385%;--dur:7s;--k:1.4167;--ik:0.7059">
-          <img class="pcard-part is-static" data-axis src="assets/card_scope_turretR2.png" alt="" loading="lazy" style="left:52.064%;top:47.936%;width:16.972%;height:12.385%;--dur:7s;--k:1.4167;--ik:0.7059">
-        </span>
+      <a class="cloud-project" href="projects/eps-finder.html">
         <h3>EPS Finder</h3>
         <p>Broadcast data management</p>
-        <span class="pcard-tag"><i class="dot"></i>In development</span>
-        <span class="pcard-more">Read more
-          <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
-            <path d="M1 5h11M8.5 1.5 12 5l-3.5 3.5" stroke="currentColor" stroke-width="1.4"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
+        <span class="cloud-development">In development</span>
+        <img class="cloud-project-doodle" src="assets/cloud-b/eps-folders.svg" width="240" height="140" alt="" loading="lazy">
+        <span class="cloud-text-link">View project <span aria-hidden="true">↗</span></span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ══════════════ PROMPT LAB ══════════════ -->
-<section class="section section-lab" id="prompt-lab">
-  <div class="section-inner">
-    <p class="eyebrow"><span class="rule"></span>02 — Ongoing</p>
-    <h2>Prompt Lab</h2>
-    <p class="section-lead">Prompts I actually use — kept in the open, ready to copy. What survived
+<section class="cloud-section cloud-lab" id="prompt-lab" aria-labelledby="lab-title">
+  <div class="cloud-container">
+    <h2 id="lab-title">Prompt Lab</h2>
+    <p class="cloud-section-lead">Prompts I actually use — kept in the open, ready to copy. What survived
       contact with a deadline, and why.</p>
-
-    <div class="lcards">
-      <button class="lcard" type="button" data-sheet="coach">
-        <span class="lcard-art">
-      <svg class="pl-art" viewBox="0 0 400 400" aria-hidden="true">
-        <g class="pl-grid" stroke="currentColor" fill="none" stroke-width="1">
-          <path d="M60 24V376M140 24V376M260 24V376M340 24V376M24 60H376M24 140H376M24 260H376M24 340H376"/>
-          <circle cx="200" cy="200" r="152"/>
-          <path d="M24 24 376 376M376 24 24 376"/>
-          <rect x="24" y="24" width="352" height="352"/>
-        </g>
-        <g class="pl-ring" stroke="currentColor" fill="none">
-          <circle cx="200" cy="200" r="132" stroke-width="3.2"/>
-          <circle cx="200" cy="200" r="125" stroke-width="1.3"/>
-          <circle cx="200" cy="200" r="119" stroke-width="1"/>
-        </g>
-        <g class="pl-ticks" stroke="currentColor" stroke-width="1.1"><path d="M319.0 200.0L325.0 200.0"/><path d="M318.5 210.4L324.5 210.9"/><path d="M317.2 220.7L323.1 221.7"/><path d="M314.9 230.8L320.7 232.4"/><path d="M311.8 240.7L317.5 242.8"/><path d="M307.9 250.3L313.3 252.8"/><path d="M303.1 259.5L308.3 262.5"/><path d="M297.5 268.3L302.4 271.7"/><path d="M291.2 276.5L295.8 280.3"/><path d="M284.1 284.1L288.4 288.4"/><path d="M276.5 291.2L280.3 295.8"/><path d="M268.3 297.5L271.7 302.4"/><path d="M259.5 303.1L262.5 308.3"/><path d="M250.3 307.9L252.8 313.3"/><path d="M240.7 311.8L242.8 317.5"/><path d="M230.8 314.9L232.4 320.7"/><path d="M220.7 317.2L221.7 323.1"/><path d="M210.4 318.5L210.9 324.5"/><path d="M200.0 319.0L200.0 325.0"/><path d="M189.6 318.5L189.1 324.5"/><path d="M179.3 317.2L178.3 323.1"/><path d="M169.2 314.9L167.6 320.7"/><path d="M159.3 311.8L157.2 317.5"/><path d="M149.7 307.9L147.2 313.3"/><path d="M140.5 303.1L137.5 308.3"/><path d="M131.7 297.5L128.3 302.4"/><path d="M123.5 291.2L119.7 295.8"/><path d="M115.9 284.1L111.6 288.4"/><path d="M108.8 276.5L104.2 280.3"/><path d="M102.5 268.3L97.6 271.7"/><path d="M96.9 259.5L91.7 262.5"/><path d="M92.1 250.3L86.7 252.8"/><path d="M88.2 240.7L82.5 242.8"/><path d="M85.1 230.8L79.3 232.4"/><path d="M82.8 220.7L76.9 221.7"/><path d="M81.5 210.4L75.5 210.9"/><path d="M81.0 200.0L75.0 200.0"/><path d="M81.5 189.6L75.5 189.1"/><path d="M82.8 179.3L76.9 178.3"/><path d="M85.1 169.2L79.3 167.6"/><path d="M88.2 159.3L82.5 157.2"/><path d="M92.1 149.7L86.7 147.2"/><path d="M96.9 140.5L91.7 137.5"/><path d="M102.5 131.7L97.6 128.3"/><path d="M108.8 123.5L104.2 119.7"/><path d="M115.9 115.9L111.6 111.6"/><path d="M123.5 108.8L119.7 104.2"/><path d="M131.7 102.5L128.3 97.6"/><path d="M140.5 96.9L137.5 91.7"/><path d="M149.7 92.1L147.2 86.7"/><path d="M159.3 88.2L157.2 82.5"/><path d="M169.2 85.1L167.6 79.3"/><path d="M179.3 82.8L178.3 76.9"/><path d="M189.6 81.5L189.1 75.5"/><path d="M200.0 81.0L200.0 75.0"/><path d="M210.4 81.5L210.9 75.5"/><path d="M220.7 82.8L221.7 76.9"/><path d="M230.8 85.1L232.4 79.3"/><path d="M240.7 88.2L242.8 82.5"/><path d="M250.3 92.1L252.8 86.7"/><path d="M259.5 96.9L262.5 91.7"/><path d="M268.3 102.5L271.7 97.6"/><path d="M276.5 108.8L280.3 104.2"/><path d="M284.1 115.9L288.4 111.6"/><path d="M291.2 123.5L295.8 119.7"/><path d="M297.5 131.7L302.4 128.3"/><path d="M303.1 140.5L308.3 137.5"/><path d="M307.9 149.7L313.3 147.2"/><path d="M311.8 159.3L317.5 157.2"/><path d="M314.9 169.2L320.7 167.6"/><path d="M317.2 179.3L323.1 178.3"/><path d="M318.5 189.6L324.5 189.1"/></g>
-        <text class="pl-numeral" x="200" y="200" text-anchor="middle" dominant-baseline="central">No.1</text>
-      </svg>
-        </span>
-        <h3>Prompt Coach</h3>
-        <p>If you could take only one prompt to a deserted island, this would be it.</p>
-        <span class="lcard-more">Read more
-          <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
-            <path d="M1 5h11M8.5 1.5 12 5l-3.5 3.5" stroke="currentColor" stroke-width="1.4"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
+    <div class="cloud-tool-grid">
+      <button class="cloud-tool" type="button" data-sheet="coach" aria-haspopup="dialog" aria-controls="sheet">
+        <img src="assets/cloud-b/coach-thread.svg" width="240" height="140" alt="" loading="lazy">
+        <span class="cloud-tool-title">Prompt Coach</span>
+        <span class="cloud-tool-description">If you could take only one prompt to a deserted island, this would be it.</span>
+        <span class="cloud-text-link">Read prompt <span aria-hidden="true">↗</span></span>
       </button>
-
-      <button class="lcard" type="button" data-sheet="production">
-        <span class="lcard-art">
-      <svg class="pl-art" viewBox="0 0 400 400" aria-hidden="true">
-        <g class="pl-grid" stroke="currentColor" fill="none" stroke-width="1">
-          <path d="M60 24V376M140 24V376M260 24V376M340 24V376M24 60H376M24 140H376M24 260H376M24 340H376"/>
-          <circle cx="200" cy="200" r="152"/>
-          <path d="M24 24 376 376M376 24 24 376"/>
-          <rect x="24" y="24" width="352" height="352"/>
-        </g>
-        <g class="pl-ring" stroke="currentColor" fill="none">
-          <circle cx="200" cy="200" r="132" stroke-width="3.2"/>
-          <circle cx="200" cy="200" r="125" stroke-width="1.3"/>
-          <circle cx="200" cy="200" r="119" stroke-width="1"/>
-        </g>
-        <g class="pl-ticks" stroke="currentColor" stroke-width="1.1"><path d="M319.0 200.0L325.0 200.0"/><path d="M318.5 210.4L324.5 210.9"/><path d="M317.2 220.7L323.1 221.7"/><path d="M314.9 230.8L320.7 232.4"/><path d="M311.8 240.7L317.5 242.8"/><path d="M307.9 250.3L313.3 252.8"/><path d="M303.1 259.5L308.3 262.5"/><path d="M297.5 268.3L302.4 271.7"/><path d="M291.2 276.5L295.8 280.3"/><path d="M284.1 284.1L288.4 288.4"/><path d="M276.5 291.2L280.3 295.8"/><path d="M268.3 297.5L271.7 302.4"/><path d="M259.5 303.1L262.5 308.3"/><path d="M250.3 307.9L252.8 313.3"/><path d="M240.7 311.8L242.8 317.5"/><path d="M230.8 314.9L232.4 320.7"/><path d="M220.7 317.2L221.7 323.1"/><path d="M210.4 318.5L210.9 324.5"/><path d="M200.0 319.0L200.0 325.0"/><path d="M189.6 318.5L189.1 324.5"/><path d="M179.3 317.2L178.3 323.1"/><path d="M169.2 314.9L167.6 320.7"/><path d="M159.3 311.8L157.2 317.5"/><path d="M149.7 307.9L147.2 313.3"/><path d="M140.5 303.1L137.5 308.3"/><path d="M131.7 297.5L128.3 302.4"/><path d="M123.5 291.2L119.7 295.8"/><path d="M115.9 284.1L111.6 288.4"/><path d="M108.8 276.5L104.2 280.3"/><path d="M102.5 268.3L97.6 271.7"/><path d="M96.9 259.5L91.7 262.5"/><path d="M92.1 250.3L86.7 252.8"/><path d="M88.2 240.7L82.5 242.8"/><path d="M85.1 230.8L79.3 232.4"/><path d="M82.8 220.7L76.9 221.7"/><path d="M81.5 210.4L75.5 210.9"/><path d="M81.0 200.0L75.0 200.0"/><path d="M81.5 189.6L75.5 189.1"/><path d="M82.8 179.3L76.9 178.3"/><path d="M85.1 169.2L79.3 167.6"/><path d="M88.2 159.3L82.5 157.2"/><path d="M92.1 149.7L86.7 147.2"/><path d="M96.9 140.5L91.7 137.5"/><path d="M102.5 131.7L97.6 128.3"/><path d="M108.8 123.5L104.2 119.7"/><path d="M115.9 115.9L111.6 111.6"/><path d="M123.5 108.8L119.7 104.2"/><path d="M131.7 102.5L128.3 97.6"/><path d="M140.5 96.9L137.5 91.7"/><path d="M149.7 92.1L147.2 86.7"/><path d="M159.3 88.2L157.2 82.5"/><path d="M169.2 85.1L167.6 79.3"/><path d="M179.3 82.8L178.3 76.9"/><path d="M189.6 81.5L189.1 75.5"/><path d="M200.0 81.0L200.0 75.0"/><path d="M210.4 81.5L210.9 75.5"/><path d="M220.7 82.8L221.7 76.9"/><path d="M230.8 85.1L232.4 79.3"/><path d="M240.7 88.2L242.8 82.5"/><path d="M250.3 92.1L252.8 86.7"/><path d="M259.5 96.9L262.5 91.7"/><path d="M268.3 102.5L271.7 97.6"/><path d="M276.5 108.8L280.3 104.2"/><path d="M284.1 115.9L288.4 111.6"/><path d="M291.2 123.5L295.8 119.7"/><path d="M297.5 131.7L302.4 128.3"/><path d="M303.1 140.5L308.3 137.5"/><path d="M307.9 149.7L313.3 147.2"/><path d="M311.8 159.3L317.5 157.2"/><path d="M314.9 169.2L320.7 167.6"/><path d="M317.2 179.3L323.1 178.3"/><path d="M318.5 189.6L324.5 189.1"/></g>
-        <g class="pl-glass" fill="none" stroke="currentColor" stroke-linecap="round">
-          <circle cx="185" cy="180" r="58" stroke-width="5"/>
-          <circle cx="185" cy="180" r="49" stroke-width="1.6"/>
-          <path d="M158 152a38 38 0 0 1 25-14" stroke-width="2.6"/>
-          <path d="M226 221 262 257" stroke-width="5"/>
-          <rect x="243" y="238" width="42" height="17" rx="8.5"
-                transform="rotate(45 264 246.5)" stroke-width="4"/>
-          <path d="M250 252 262 264M258 244 270 256" stroke-width="1.2"/>
-        </g>
-      </svg>
-        </span>
-        <h3>Production Prompt</h3>
-        <p>Copy. Paste. Produce.</p>
-        <span class="lcard-more">Read more
-          <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
-            <path d="M1 5h11M8.5 1.5 12 5l-3.5 3.5" stroke="currentColor" stroke-width="1.4"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
+      <button class="cloud-tool" type="button" data-sheet="production" aria-haspopup="dialog" aria-controls="sheet">
+        <img src="assets/cloud-b/production-notes.svg" width="240" height="140" alt="" loading="lazy">
+        <span class="cloud-tool-title">Production Prompt</span>
+        <span class="cloud-tool-description">Copy. Paste. Produce.</span>
+        <span class="cloud-text-link">Browse prompts <span aria-hidden="true">↗</span></span>
       </button>
     </div>
   </div>
 </section>
 
-<footer class="footer">
-  <span>© <span id="year"></span> Zhimin Barbara Zhang</span>
-  <span class="footer-links">
-    <button class="footer-link" type="button" data-contact>zhiminzhangcn@gmail.com</button>
-    <a class="footer-link footer-li" href="https://www.linkedin.com/in/zhimin-zhang-creative"
-       target="_blank" rel="noopener noreferrer">
-      <span class="li-mark" aria-hidden="true"></span>LinkedIn</a>
-  </span>
+<section class="cloud-section cloud-contact" id="contact" aria-labelledby="contact-title">
+  <div class="cloud-container cloud-contact-inner">
+    <div>
+      <h2 id="contact-title">Get in touch</h2>
+      <p class="cloud-section-lead">Drop me a line — I read everything.</p>
+    </div>
+    <div class="cloud-contact-details">
+      <div class="cloud-email-row">
+        <a class="cloud-email" href="mailto:zhiminzhangcn@gmail.com">zhiminzhangcn@gmail.com</a>
+        <button class="cloud-copy-email" type="button" data-copy-email aria-label="Copy email address"><span class="copy-label" role="status" aria-live="polite">Copy email</span></button>
+      </div>
+      <div class="cloud-contact-links">
+        <a href="mailto:zhiminzhangcn@gmail.com">Open in mail app <span aria-hidden="true">↗</span></a>
+        <a href="https://www.linkedin.com/in/zhimin-zhang-creative" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="cloud-footer">
+  <div class="cloud-container">
+    <span>© <span id="year"></span> Zhimin Barbara Zhang</span>
+    <a href="#home">Back to top <span aria-hidden="true">↑</span></a>
+  </div>
 </footer>
 
 <!-- ══════════════ PROMPT SHEET ══════════════ -->
@@ -228,7 +152,7 @@
     <p class="modal-sub">Drop me a line — I read everything.</p>
     <div class="modal-row">
       <span class="modal-email" id="modal-email">zhiminzhangcn@gmail.com</span>
-      <button class="copy-btn" id="copy-btn" type="button" aria-label="Copy email address">
+      <button class="copy-btn" id="copy-btn" data-copy-email type="button" aria-label="Copy email address">
         <span class="copy-label" role="status" aria-live="polite">Copy</span>
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
           <rect x="3.6" y="3.6" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.1"/>
