@@ -1,5 +1,13 @@
 # Cloud B — 首页资产（步骤 1–2）
 
+## 整站更新：步骤 3–6
+
+现有云体、表情及五张 SVG 在项目页和 Prompt Lab 中复用。新增 `caption-flow.svg`：本轮为 Pinky Saver 编写的原创黑线 SVG，720×130 viewBox，包含 `input`、`alignment`、`output`、`arrows` 可编辑分组。SVG 即母版及网页资源，无外部字体或第三方图像；说明文字使用实际 HTML，并保留跨语言任务的 XML 条件。它是流程插画，不是软件截图。
+
+Pinky Saver 的软件截图仍直接使用上级目录 `pinky_pkg.png`（831×671）和 `pinky_shorts.png`（831×1037），文件未修改；支持大图及原图链接。三张 approved 概念图仍只作设计参考。
+
+整站动效为一次 800ms 云朵轻点头，以及链接 hover/focus 时 180ms、3px 的插画回应；没有持续动画循环。`prefers-reduced-motion: reduce` 下禁用装饰动画、过渡与平滑滚动。以下步骤 1–2 的来源和静态状态说明是历史记录。
+
 本目录包含首页首屏与步骤 2 的独立简笔画，2026-09-12 制作。没有下载网络素材，没有使用 `IMG_5228.PNG`，也没有裁取三张网页概念图。
 
 | 文件 | 用途与来源 |

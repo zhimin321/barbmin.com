@@ -1,4 +1,4 @@
-/* Cloud B homepage. All rules are scoped; project pages retain their own theme. */
+/* Cloud B shared navigation, character and approved homepage layout. */
 .cloud-home {
   --cloud-ink: #111820;
   --cloud-blue: #0062e6;
@@ -234,14 +234,8 @@
 .cloud-home .cloud-footer .cloud-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; }
 .cloud-home .cloud-section :focus-visible,
 .cloud-home .cloud-footer :focus-visible { outline: 3px solid #004ba8; outline-offset: 5px; }
-/* Keep existing prompt dialogs readable until the independent page in step 5. */
-.cloud-home .sheet { background: #fff; }
-.cloud-home .sheet-head h2 { font-style: normal; }
-.cloud-home .sheet-close { width: 44px; height: 44px; }
-.cloud-home .sheet :focus-visible { outline: 3px solid #004ba8; outline-offset: 3px; }
-/* Closed legacy dialogs must not enter the new navigation's keyboard sequence. */
-.cloud-home .modal-backdrop:not(.open),
-.cloud-home .sheet-backdrop:not(.open) { visibility: hidden; }
+/* Closed contact dialogs stay outside the keyboard sequence. */
+.cloud-home .modal-backdrop:not(.open) { visibility: hidden; }
 .cloud-home .modal-close { width: 44px; height: 44px; top: 4px; right: 4px; }
 .cloud-home .copy-btn { min-height: 44px; }
 .cloud-home .modal-mailto { min-height: 44px; display: inline-flex; align-items: center; }
@@ -279,3 +273,21 @@
   .cloud-home .cloud-contact-details { margin-top: 24px; }
   .cloud-home .cloud-footer { padding: 16px 20px; }
 }
+/* Shared final accessibility and restrained motion. */
+body { overflow-x: visible; }
+:focus-visible { outline: 3px solid #004ba8; outline-offset: 4px; }
+.skip-link { position: fixed; top: 8px; left: 16px; z-index: 100; transform: translateY(-160%); background: white; color: #004ba8; padding: 12px 20px; border-radius: 8px; }
+.skip-link:focus { transform: none; }
+.cloud-home .cloud-tool { text-decoration: none; }
+.modal-backdrop { overflow-y: auto; }
+.modal-row { flex-wrap: wrap; border-radius: 14px; }
+.modal-close { opacity: 1; }
+.cloud-home .cloud-menu { justify-content: flex-start; }
+@keyframes cloud-hello { 0%,100% { transform: rotate(0); } 45% { transform: rotate(-3deg) translateY(-3px); } 70% { transform: rotate(2deg); } }
+@media (prefers-reduced-motion: no-preference) {
+  .cloud-character { animation: cloud-hello 800ms ease-out 1; }
+  .cloud-project-doodle,.cloud-tool img,.lab-shortcuts img { transition: transform 180ms ease; }
+  .cloud-project:hover .cloud-project-doodle,.cloud-project:focus-visible .cloud-project-doodle,.cloud-tool:hover img,.cloud-tool:focus-visible img,.lab-shortcuts a:hover img,.lab-shortcuts a:focus-visible img { transform: translateY(-3px) rotate(-2deg); }
+}
+@media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+@media (scripting: none) { .cloud-home .cloud-nav .nav-desktop { display: flex; flex-wrap: wrap; gap: 8px 16px; } .cloud-nav { position: relative; flex-wrap: wrap; } .burger { display: none; } .cloud-home .cloud-hero,.phero { padding-top: 24px; } [data-copy-email],[data-copy-prompt] { display: none; } }

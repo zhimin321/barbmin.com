@@ -11,10 +11,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="index.css">
-<link rel="stylesheet" href="cloud-home.css">
+<link rel="stylesheet" href="index.css?v=cloud-b-6">
+<link rel="stylesheet" href="cloud-home.css?v=cloud-b-6">
 </head>
 <body class="cloud-home">
+<a class="skip-link" href="#projects">Skip to content</a>
 
 <!-- Cloud B step 1: independent sky, cloud body and editable doodle layers. -->
 <nav class="nav cloud-nav" id="nav" aria-label="Main navigation">
@@ -36,6 +37,7 @@
   <a href="mailto:zhiminzhangcn@gmail.com" data-contact>Contact</a>
   <a class="mobile-social" href="https://www.linkedin.com/in/zhimin-zhang-creative" target="_blank" rel="noopener noreferrer"><span class="li-mark" aria-hidden="true"></span><span>LinkedIn</span></a>
 </div>
+<main>
 <section class="cloud-hero" id="home" aria-labelledby="cloud-title">
   <img class="cloud-sky-wisp is-left" src="assets/cloud-b/cloud-body.webp" alt="" width="720" height="480" aria-hidden="true">
   <img class="cloud-sky-wisp is-right" src="assets/cloud-b/cloud-body.webp" alt="" width="720" height="480" aria-hidden="true">
@@ -87,18 +89,18 @@
     <p class="cloud-section-lead">Prompts I actually use — kept in the open, ready to copy. What survived
       contact with a deadline, and why.</p>
     <div class="cloud-tool-grid">
-      <button class="cloud-tool" type="button" data-sheet="coach" aria-haspopup="dialog" aria-controls="sheet">
+      <a class="cloud-tool" href="prompt-lab.html#coach">
         <img src="assets/cloud-b/coach-thread.svg" width="240" height="140" alt="" loading="lazy">
         <span class="cloud-tool-title">Prompt Coach</span>
         <span class="cloud-tool-description">If you could take only one prompt to a deserted island, this would be it.</span>
         <span class="cloud-text-link">Read prompt <span aria-hidden="true">↗</span></span>
-      </button>
-      <button class="cloud-tool" type="button" data-sheet="production" aria-haspopup="dialog" aria-controls="sheet">
+      </a>
+      <a class="cloud-tool" href="prompt-lab.html#folder">
         <img src="assets/cloud-b/production-notes.svg" width="240" height="140" alt="" loading="lazy">
         <span class="cloud-tool-title">Production Prompt</span>
         <span class="cloud-tool-description">Copy. Paste. Produce.</span>
         <span class="cloud-text-link">Browse prompts <span aria-hidden="true">↗</span></span>
-      </button>
+      </a>
     </div>
   </div>
 </section>
@@ -121,24 +123,13 @@
     </div>
   </div>
 </section>
+</main>
 <footer class="cloud-footer">
   <div class="cloud-container">
     <span>© <span id="year"></span> Zhimin Barbara Zhang</span>
     <a href="#home">Back to top <span aria-hidden="true">↑</span></a>
   </div>
 </footer>
-
-<!-- ══════════════ PROMPT SHEET ══════════════ -->
-<div class="sheet-backdrop" id="sheet" role="dialog" aria-modal="true" aria-label="Prompt">
-  <div class="sheet">
-    <button class="sheet-close" id="sheet-close" type="button" aria-label="Close">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-        <path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-      </svg>
-    </button>
-    <div class="sheet-body" id="sheet-body"></div>
-  </div>
-</div>
 
 <!-- ══════════════ CONTACT MODAL ══════════════ -->
 <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
@@ -164,249 +155,6 @@
   </div>
 </div>
 
-<template id="sheet-coach">
-  <div class="sheet-head">
-    <p class="eyebrow"><span class="rule"></span>Prompt Lab · No.1</p>
-    <h2>Prompt Coach</h2>
-    <p class="sheet-lead">Turn fuzzy ideas into prompts that perform. This prompt uncovers ambiguity,
-      hidden assumptions, and missing context — then asks the right questions to help you get clearer,
-      more reliable results from any LLM.</p>
-  </div>
-        <div class="prompt-block">
-          <div class="prompt-bar">
-            <span class="prompt-name">Prompt Coach</span>
-            <button class="prompt-copy" type="button"><span>Copy prompt</span>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                <rect x="3.6" y="3.6" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.1"/>
-                <path d="M8.4 1.4H2.7A1.3 1.3 0 0 0 1.4 2.7v5.7" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
-              </svg>
-            </button>
-          </div>
-          <pre class="prompt-text">You are a prompt reviewer. Your job is not to write prompts for users — it is to surface what they cannot see in their own.
-
-What&#x27;s invisible in a prompt usually falls into three categories:
-
-1. Ambiguity — Language the author considers clear, but that a model could reasonably interpret in two or more ways.
-2. Hidden assumptions — Premises the prompt never states outright, yet its entire logic depends on them being true.
-3. Missing context — Information absent from the prompt that, if supplied, would meaningfully change the output.
-
-Review process
-
-Work like a sharp consultant clarifying a brief. Each round, identify the single most critical gap and ask one focused question. Use the three categories above as your diagnostic lens — do not default to surface-level observations. Based on the user&#x27;s answer, decide dynamically: ask another question, or move to writing.
-
-When to stop asking
-
-If the prompt is already clear enough to produce a reliable output, say so. Do not manufacture questions for the sake of thoroughness. Move directly to writing.
-
-Final deliverable
-
-Once all critical gaps are resolved, write a complete, ready-to-use prompt. Before delivering, verify it against these standards:
-
-Clear intent — The core goal is unmistakable in one sentence.
-Transparent assumptions — Every premise the logic depends on is stated explicitly.
-Sufficient context — The model does not need to guess any key information.
-Internal consistency — No constraint contradicts another.
-Effective constraints — The model can clearly distinguish what to do from what not to do.
-No dead weight — Every sentence earns its place; remove anything that doesn&#x27;t change the output.</pre>
-        </div>
-</template>
-
-<template id="sheet-production">
-  <div class="sheet-head">
-    <p class="eyebrow"><span class="rule"></span>Prompt Lab · Production</p>
-    <h2>Production Prompt</h2>
-    <p class="sheet-lead">Ready-to-use prompts for production teams — the repetitive setup jobs that
-      eat a morning, written out once so they can be run in a minute.</p>
-  </div>
-  <div class="tabs" role="tablist" aria-label="Production prompts">
-    <button class="tab is-on" type="button" role="tab" aria-selected="true"  data-tab="folder">Folder Builder</button>
-    <button class="tab"       type="button" role="tab" aria-selected="false" data-tab="cue">Master Cue Sheet</button>
-    <button class="tab"       type="button" role="tab" aria-selected="false" data-tab="tc">Timecode Rules</button>
-  </div>
-  <div class="tabpanel is-on" data-panel="folder">
-        <div class="prompt-block">
-          <div class="prompt-bar">
-            <span class="prompt-name">1. Basic folder structure</span>
-            <button class="prompt-copy" type="button"><span>Copy prompt</span>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                <rect x="3.6" y="3.6" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.1"/>
-                <path d="M8.4 1.4H2.7A1.3 1.3 0 0 0 1.4 2.7v5.7" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
-              </svg>
-            </button>
-          </div>
-          <pre class="prompt-text">Task: Generate a folder structure and provide it as a downloadable ZIP file.
-
-Inputs:
-- Show Name:
-- Season:
-- RX Number:
-
-Requirements:
-- Create folders from RX_01 to RX_{RX Number}.
-- Folder naming format: {ShowName}_{Season}_RX_{XX}
-- RX numbers must always be 2 digits (01, 02, 03...).
-- Use underscores &quot;_&quot; between all parts.
-- Example: MM_S9_RX_01
-- All folders should be inside one parent folder:
-  {ShowName}_{Season}_RX_01_to_RX_{RX Number}
-
-Output:
-- Downloadable ZIP file containing the folder structure.
-- Preview list of all folder names.</pre>
-        </div>
-        <div class="prompt-block">
-          <div class="prompt-bar">
-            <span class="prompt-name">2. EP files folder structure</span>
-            <button class="prompt-copy" type="button"><span>Copy prompt</span>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                <rect x="3.6" y="3.6" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.1"/>
-                <path d="M8.4 1.4H2.7A1.3 1.3 0 0 0 1.4 2.7v5.7" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
-              </svg>
-            </button>
-          </div>
-          <pre class="prompt-text">Task: Generate a structured folder system for episodes and provide as ZIP.
-
-Inputs:
-- Show Name:
-- Season:
-- RX Number:
-
-2.1 RX Folder Creation
-- Create folders from RX_01 to RX_{RX Number}
-- RX numbers must be formatted as 2 digits.
-
-2.2 RX Folder Naming
-- Format: {ShowName}_{Season}_RX_{XX}
-- Example: MM_S9_RX_01
-- Use underscores, do not skip or alter formatting.
-
-2.3 Internal Folder Structure (for EACH RX folder)
-Each folder must contain:
-- AUDIO
-- FROM AUDIO
-- TO AUDIO
-- EXPORTS
-- 01-ROUGH CUTS
-- 02-FINE CUT
-- PICK UPS
-- PROJECTS
-
-2.4 Parent Folder
-- All RX folders inside a single parent folder named: EP FILES
-
-Output Requirements:
-- Downloadable ZIP file with full folder structure.</pre>
-        </div>
-  </div>
-  <div class="tabpanel" data-panel="cue">
-        <div class="prompt-block">
-          <div class="prompt-bar">
-            <span class="prompt-name">Master Cue Sheet</span>
-            <button class="prompt-copy" type="button"><span>Copy prompt</span>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                <rect x="3.6" y="3.6" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.1"/>
-                <path d="M8.4 1.4H2.7A1.3 1.3 0 0 0 1.4 2.7v5.7" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
-              </svg>
-            </button>
-          </div>
-          <pre class="prompt-text">Note (for human): check episode numbers in A1 before starting.
-
-1. Task
-- Using the provided Excel template and MID file, generate multiple Master Cue Sheet files.
-- Deliver all as a downloadable ZIP file.
-
-2. Inputs
-- Show Name:
-- Season:
-- EP Number:
-- Files provided:
-  - Master Cue Sheet Excel Template (.xlsx)
-  - MID File (Media Item Numbers per episode)
-
-3. Output File Naming
-- Format: {ShowName}{Season} EP{XX} Master Cue Sheet.xlsx
-- Examples:
-  - ShowNameS8 EP01 Master Cue Sheet.xlsx
-  - ShowNameS9 EP15 Master Cue Sheet.xlsx
-- EP numbers must always be 2 digits.
-- Maintain spacing and capitalization.
-
-4. File Generation
-- Create one copy of the template for each episode (EP01 to EP{EP Number}).
-- Do NOT modify structure, formatting, formulas, or other sheets.
-
-5. Excel Modifications (only in the &quot;Cue Sheet&quot; sheet)
-- Cell B3 (Episode Number) - format: #XX. Examples: EP01 -&gt; #01, EP03 -&gt; #03
-- Cell B4 (Media Item Number) - retrieve from the MID file. Each episode has a
-  unique number; ensure accurate matching.
-
-6. Validation Step
-- Preview at least 2-3 sample episodes (EP01, EP02, EP03), showing:
-  - File name
-  - B3 value
-  - B4 value
-- Wait for user confirmation before generating the full ZIP.
-
-7. Final Output
-- Generate all episode files after confirmation.
-- Provide downloadable ZIP file.
-- Ensure file names and Excel values are correct.
-
-8. Error Handling
-- Flag episodes with missing or mismatched Media Item Numbers.
-- Do NOT generate those files.
-- Report issues to the user.</pre>
-        </div>
-  </div>
-  <div class="tabpanel" data-panel="tc">
-        <div class="prompt-block">
-          <div class="prompt-bar">
-            <span class="prompt-name">Timecode calculation rules</span>
-            <button class="prompt-copy" type="button"><span>Copy prompt</span>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                <rect x="3.6" y="3.6" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.1"/>
-                <path d="M8.4 1.4H2.7A1.3 1.3 0 0 0 1.4 2.7v5.7" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
-              </svg>
-            </button>
-          </div>
-          <pre class="prompt-text">1. 10-Second Rule
-
-Add 10 seconds
-- Always add +10 seconds to the original timecode.
-- This is the minimum increase (never reduce it later).
-
-Round UP to nearest 5 or 0
-- After adding 10 seconds, round UP only to the next multiple of 5.
-- Never round down.
-
-Allow minute rollover
-- If seconds go over 60, carry into the next minute.
-- Rounding still applies after that.
-
-Simple rule: add 10 seconds, then push forward to the next 0 or 5
-Example: 00:21:58:00 -&gt; +10s -&gt; 00:22:08:00 -&gt; 00:22:10:00
-
-
-2. 3-Second Rule
-
-Add 3 seconds
-- Always add +3 seconds to the original timecode.
-- This is the minimum increase (never reduce it later).
-
-Round UP to nearest 5 or 0
-- After adding 3 seconds, round UP only to the next multiple of 5.
-- Never round down.
-
-Allow minute rollover
-- If seconds go over 60, carry into the next minute.
-- Rounding still applies after that.
-
-Simple rule: add 3 seconds, then push forward to the next 0 or 5
-Example: 00:21:58:00 -&gt; +3s -&gt; 00:22:01:00 -&gt; 00:22:05:00</pre>
-        </div>
-  </div>
-</template>
-
-<script src="app.js"></script>
+<script src="app.js?v=cloud-b-6"></script>
 </body>
 </html>
