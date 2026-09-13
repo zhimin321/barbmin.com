@@ -1,0 +1,48 @@
+{
+  "baseline": "8cd08b6",
+  "prompts": [
+    {
+      "index": 1,
+      "characters": 1675,
+      "sha256": "a1d9deaa3ddbca550854f44326b4823baa8d55e1181c55248234a5ea5a8db9c7"
+    },
+    {
+      "index": 2,
+      "characters": 551,
+      "sha256": "431482678ba29d3d50017b680f66093b6a0fe384e85fa6636efcd70d0206549f"
+    },
+    {
+      "index": 3,
+      "characters": 696,
+      "sha256": "44126d30739132b28bf81355ee65f077bdbd196d244a9a80ba61eb821ee48b1f"
+    },
+    {
+      "index": 4,
+      "characters": 1511,
+      "sha256": "b36dc079bfb7a2631101ab247495301b9a821ce65bb0b5ed5c5be672a6c8d7a2"
+    },
+    {
+      "index": 5,
+      "characters": 987,
+      "sha256": "19340c559cb6eb19c2d70dd9068764077bee9d4eb45dd7a8c826e7a8524e1770"
+    }
+  ],
+  "cases": {
+    "projects/pinky-saver.html": {
+      "original_paragraphs_items_metrics": 23,
+      "all_preserved": true,
+      "code_lines_unchanged": 0
+    },
+    "projects/what-is-24-1.html": {
+      "original_paragraphs_items_metrics": 12,
+      "all_preserved": true,
+      "code_lines_unchanged": 42
+    },
+    "projects/eps-finder.html": {
+      "original_paragraphs_items_metrics": 32,
+      "all_preserved": true,
+      "code_lines_unchanged": 14
+    }
+  },
+  "local_links": "pass"
+}

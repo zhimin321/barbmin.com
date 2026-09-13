@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="140" viewBox="0 0 240 140">
+  <ellipse id="shadow" cx="121" cy="119" rx="73" ry="5" fill="#d9effc"/>
+  <g id="caption-paper" transform="rotate(-9 97 77)" fill="#fff" stroke="#111820" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M65 38q-3 0-3 4l1 71q0 3 4 3l56-1q3 0 3-4l-1-72q0-3-4-3z"/>
+    <path d="M76 56h34M76 69h24M76 83h33M76 96h18" fill="none"/>
+  </g>
+  <g id="relaxed-hand" fill="none" stroke="#111820" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M144 107c-6-9-9-15-12-23-2-5 1-8 4-5l10 14-5-36c-1-6 5-7 6-1l6 27-1-33c0-6 6-6 6 0l2 34 4-25c1-6 7-4 6 1l-3 30 8-13c3-5 8-2 5 3l-9 24c-4 10-16 12-27 3z"/>
+    <path d="m42 67-11-4m18-11-7-10m146 17 7-9m-2 25 12-3"/>
+  </g>
+</svg>

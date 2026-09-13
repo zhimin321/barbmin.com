@@ -1,0 +1,38 @@
+# Cloud B — 首页资产（步骤 1–2）
+
+## 整站更新：步骤 3–6
+
+现有云体、表情及五张 SVG 在项目页和 Prompt Lab 中复用。新增 `caption-flow.svg`：本轮为 Pinky Saver 编写的原创黑线 SVG，720×130 viewBox，包含 `input`、`alignment`、`output`、`arrows` 可编辑分组。SVG 即母版及网页资源，无外部字体或第三方图像；说明文字使用实际 HTML，并保留跨语言任务的 XML 条件。它是流程插画，不是软件截图。
+
+Pinky Saver 的软件截图仍直接使用上级目录 `pinky_pkg.png`（831×671）和 `pinky_shorts.png`（831×1037），文件未修改；支持大图及原图链接。三张 approved 概念图仍只作设计参考。
+
+整站动效为一次 800ms 云朵轻点头，以及链接 hover/focus 时 180ms、3px 的插画回应；没有持续动画循环。`prefers-reduced-motion: reduce` 下禁用装饰动画、过渡与平滑滚动。以下步骤 1–2 的来源和静态状态说明是历史记录。
+
+本目录包含首页首屏与步骤 2 的独立简笔画，2026-09-12 制作。没有下载网络素材，没有使用 `IMG_5228.PNG`，也没有裁取三张网页概念图。
+
+| 文件 | 用途与来源 |
+| --- | --- |
+| `source/cloud-body.png` | 图像生成工具新制作的原尺寸 RGBA 云体，1536×1024；保留透明通道。 |
+| `cloud-body.webp` | 从上述母版等比导出到 720×480，WebP quality 88，约 47 KB；网页用同一资源作主云和边缘淡云。 |
+| `cloud-doodle.svg` | 为本网站编写的原创矢量表情、手臂与支撑线；`face`、`arms`、`resting-line` 独立分组，可编辑。 |
+| `source/cloud-character.svg` | 可编辑的分层组合母版，引用原始云体和 SVG 叠层；与本目录一并转移。 |
+| `sky.svg` | 可编辑的浅蓝天空渐变，无文字；同时作为网页导出。 |
+| `pinky-note.svg` | 原创字幕纸条与放松的小手，用于 Pinky Saver。 |
+| `timecode-board.svg` | 原创时间码板与问号，用于 What is 24+1?；板中文字是装饰，实际项目名为 HTML。 |
+| `eps-folders.svg` | 原创云朵协助整理文件夹，用于 EPS Finder；开发状态由常驻 HTML 标明。 |
+| `coach-thread.svg` | 原创线团延伸为箭头，用于 Prompt Coach。 |
+| `production-notes.svg` | 原创文件夹与清单，用于 Production Prompt 总入口。 |
+
+步骤 2 的五张简笔画沿用已通过的 SVG 黑线语言：240×140 viewBox、2.2px 圆端点笔画、少量浅蓝底影。SVG 同时是可编辑母版与网页导出，内部分组保留，无第三方素材或字体依赖。插画属于装饰，不替代项目状态、标题或按钮；本步保持静态，不提前制作后续内页插画或全站动画。
+
+网页文字、导航、姓名及按钮均为 HTML。天空与主云通过 `cloud-home.css` 定位；角色默认静止，本步没有持续装饰动画。三张 approved 图片仅在 `docs/design/cloud-b/` 作参考，不参与网页加载。
+
+## 云体生成说明
+
+生成一个原创、自然、不对称的白色积云，柔和浅蓝阴影，真实透明背景；云体主体在画面中央，保留完整轮廓与少量透明边距，最高团块略偏左。不要表情、手臂、文字、天空矩形、界面或其他物件。云体中下部保留平静区域，供网页叠加独立黑线五官和手势。
+
+云体是生成位图，像素层可编辑；表情与手势是独立矢量，未声称云体本身可以逐个团块进行矢量编辑。
+
+## 重导出
+
+使用 Sharp 将 `source/cloud-body.png` 等比缩至宽 720px，再以 `webp({ quality: 88 })` 导出；保留 alpha。网页预留尺寸，不依赖图像加载后才能排版。

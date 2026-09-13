@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="140" viewBox="0 0 240 140">
+  <ellipse id="shadow" cx="126" cy="117" rx="74" ry="5" fill="#d9effc"/>
+  <g id="folder" fill="#fff" stroke="#111820" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M49 107V59q0-4 4-4h23l8 8h37v45z"/>
+    <path d="m49 108 10-31h74l-11 33z"/>
+  </g>
+  <g id="checklist" transform="rotate(8 154 76)" fill="#fff" stroke="#111820" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M131 34h45l13 13v65h-58z"/>
+    <path d="M175 34v15h14M141 62l3 3 6-7m-9 20 3 3 6-7m-9 20 3 3 6-7m7-27h20m-20 16h20m-20 16h13" fill="none"/>
+  </g>
+  <g id="accents" fill="none" stroke="#111820" stroke-width="2.2" stroke-linecap="round"><path d="m40 41-7-7m169 23 10-4m-14-8 5-9"/></g>
+</svg>

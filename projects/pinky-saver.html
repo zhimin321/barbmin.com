@@ -4,76 +4,59 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pinky Saver — Zhimin Barbara Zhang</title>
-<meta name="description" content="Pinky Saver — automated caption generation for broadcast. Script-accurate subtitles, aligned automatically and generated fully offline.">
+<meta name="description" content="Pinky Saver — automated caption generation for broadcast. Script-accurate subtitles, aligned automatically and generated offline once the ASR models are downloaded.">
 <link rel="icon" href="../assets/logo.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="../index.css">
-<link rel="stylesheet" href="project.css">
+<link rel="stylesheet" href="../index.css?v=cloud-b-6">
+<link rel="stylesheet" href="../cloud-home.css?v=cloud-b-6">
+<link rel="stylesheet" href="project.css?v=cloud-b-6">
 </head>
-<body>
+<body class="cloud-home cloud-inner">
+<a class="skip-link" href="#main">Skip to content</a>
 
 <!-- ══════════════ NAVBAR ══════════════ -->
-<nav class="nav on-dark" id="nav">
-  <a class="logo" href="../index.html#home" aria-label="Zhimin Barbara Zhang — home">
-    <img class="logo-mark" src="../assets/logo.png" alt="Zhimin">
-  </a>
+<nav class="nav cloud-nav" id="nav" aria-label="Main navigation">
+  <a class="logo cloud-wordmark" href="../index.html#home" aria-label="Barbara — home">Barbara.</a>
   <div class="nav-desktop">
-    <a class="nav-link" href="../index.html#home">Home</a>
-    <a class="nav-link is-active" href="../index.html#projects">Projects</a>
-    <a class="nav-link" href="../index.html#prompt-lab">Prompt Lab</a>
-    <a class="nav-social" href="https://www.linkedin.com/in/zhimin-zhang-creative" target="_blank" rel="noopener noreferrer"
-       aria-label="Zhimin Barbara Zhang on LinkedIn" title="LinkedIn"><span class="li-mark" aria-hidden="true"></span></a>
-    <button class="nav-pill" type="button" data-contact>Contact</button>
+    <a class="nav-link" href="../index.html#projects">Projects</a>
+    <a class="nav-link" href="../prompt-lab.html">Prompt Lab</a>
+    <a class="nav-link" href="mailto:zhiminzhangcn@gmail.com" data-contact>Contact</a>
+    <a class="nav-social" href="https://www.linkedin.com/in/zhimin-zhang-creative" target="_blank" rel="noopener noreferrer" aria-label="Zhimin Barbara Zhang on LinkedIn" title="LinkedIn"><span class="li-mark" aria-hidden="true"></span></a>
   </div>
-  <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+  <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
-
-<div class="mobile-overlay" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu">
+<div class="mobile-overlay cloud-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu">
   <a href="../index.html#home">Home</a>
   <a href="../index.html#projects">Projects</a>
-  <a href="../index.html#prompt-lab">Prompt Lab</a>
-  <button class="mobile-cta" type="button" data-contact>Contact</button>
+  <a href="../prompt-lab.html">Prompt Lab</a>
+  <a href="mailto:zhiminzhangcn@gmail.com" data-contact>Contact</a>
   <a class="mobile-social" href="https://www.linkedin.com/in/zhimin-zhang-creative" target="_blank" rel="noopener noreferrer"><span class="li-mark" aria-hidden="true"></span><span>LinkedIn</span></a>
 </div>
-
-<!-- ══════════════ TITLE CARD ══════════════ -->
-<header class="phero">
-  <div class="wrap">
-    <p class="eyebrow"><span class="rule"></span>Project 01</p>
-    <h1>Pinky Saver</h1>
-    <p class="sub">Automated caption generation for broadcast</p>
-
-    <div class="phero-art">
-      <img class="plate" src="../assets/card_press2.png" alt="Engraving of a hand-operated printing press">
-      <img class="part" data-axis src="../assets/card_press_wheel2.png" alt=""
-           style="left:12.844%;top:33.716%;width:23.853%;height:36.239%;--dur:18s;--k:0.6351;--ik:1.5746">
-    </div>
-
-    <p class="tagline">Because we only have two pinkies — let’s keep them off the keyboard.</p>
-  </div>
-</header>
+<header class="phero"><div class="wrap"><a class="page-back" href="../index.html#projects">← All projects</a>    <div class="cloud-character" aria-hidden="true">
+      <img class="cloud-body" src="../assets/cloud-b/cloud-body.webp" alt="" width="720" height="480" fetchpriority="high">
+      <img src="../assets/cloud-b/cloud-doodle.svg" alt="" width="360" height="230">
+    </div><h1>Pinky Saver</h1><p class="sub">Automated caption generation for broadcast</p><p class="tagline">Because we only have two pinkies — let’s keep them off the keyboard.</p></div></header>
 
 <!-- ══════════════ THE APP ══════════════ -->
-<section class="shots">
+<section class="quick-summary wrap" aria-label="Captioning outcomes"><div><strong>1 hr → 5–10 min</strong><p>News-package captioning: a manual job becomes a check.</p></div><div><strong>30 min → 5 min</strong><p>Social and Shorts captioning.</p></div><div><strong>3 languages</strong><p>Chinese, Cantonese and English — with room to grow.</p></div></section>
+<section class="shots" aria-label="The tool in use">
   <div class="wrap">
-    <div class="shots-grid">
+    <h2>The tool in use</h2><p class="image-hint">Select a screenshot to view it in full.</p><div class="shots-grid">
       <figure class="shot">
-        <div class="shot-frame">
-          <img src="../assets/pinky_pkg.png" alt="Pinky Saver's package captioning screen: upload slots for script, VO audio, grab audio and Premiere XML, with a Generate button."
-               width="831" height="671" loading="lazy">
+        <div class="shot-frame"><a class="shot-open" href="../assets/pinky_pkg.png" aria-label="View full Packages screenshot"><img src="../assets/pinky_pkg.png" alt="Pinky Saver's package captioning screen: upload slots for script, VO audio, grab audio and Premiere XML, with a Generate button."
+               width="831" height="671" loading="lazy"></a>
         </div>
         <figcaption><b>Packages</b> — script, audio and Premiere XML in; a Premiere-ready SRT out.</figcaption>
       </figure>
       <figure class="shot">
-        <div class="shot-frame">
-          <img src="../assets/pinky_shorts.png" alt="Pinky Saver's Shorts screen: caption script upload with CPS and start-time settings, plus an SRT resync tool."
-               width="831" height="1037" loading="lazy">
+        <div class="shot-frame"><a class="shot-open" href="../assets/pinky_shorts.png" aria-label="View full Shorts screenshot"><img src="../assets/pinky_shorts.png" alt="Pinky Saver's Shorts screen: caption script upload with CPS and start-time settings, plus an SRT resync tool."
+               width="831" height="1037" loading="lazy"></a>
         </div>
         <figcaption><b>Shorts</b> — styled captions from a script, plus SRT resync across languages.</figcaption>
       </figure>
@@ -82,7 +65,7 @@
 </section>
 
 <!-- ══════════════ CASE STUDY ══════════════ -->
-<article class="body">
+<article class="body" role="main" id="main" tabindex="-1">
   <div class="wrap">
 
     <section class="chapter">
@@ -103,6 +86,7 @@
     <section class="chapter">
       <span class="num">02 — The solution</span>
       <h2>Align the script you already have</h2>
+      <figure class="caption-flow"><img src="../assets/cloud-b/caption-flow.svg" width="720" height="130" alt="" loading="lazy"><figcaption><span>Script + audio<br>XML for cross-language jobs</span><span>Align + review</span><span>SRT + QC report</span></figcaption></figure>
       <div class="measure">
         <p><strong>Pinky Saver takes the script the editor already has and does the aligning for
           them.</strong></p>
@@ -178,18 +162,7 @@
   </div>
 </article>
 
-<footer class="pfoot">
-  <div class="wrap">
-    <a class="back" href="../index.html#projects">← All projects</a>
-    <span class="mail">© <span id="year"></span> Zhimin Barbara Zhang ·
-      <button type="button" data-contact>zhiminzhangcn@gmail.com</button> ·
-      <a class="foot-li" href="https://www.linkedin.com/in/zhimin-zhang-creative"
-         target="_blank" rel="noopener noreferrer">
-        <span class="li-mark" aria-hidden="true"></span>LinkedIn</a></span>
-  </div>
-</footer>
-
-<!-- ══════════════ CONTACT MODAL ══════════════ -->
+<footer class="cloud-footer"><div class="cloud-container"><a href="../index.html#projects">← All projects</a><span>© <span id="year"></span> Zhimin Barbara Zhang</span><a href="mailto:zhiminzhangcn@gmail.com" data-contact>Get in touch ↗</a><a href="https://www.linkedin.com/in/zhimin-zhang-creative" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></footer>
 <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal">
     <button class="modal-close" id="modal-close" type="button" aria-label="Close">
@@ -200,9 +173,9 @@
     <p class="eyebrow" id="modal-title"><span class="rule"></span>Get in touch</p>
     <p class="modal-sub">Drop me a line — I read everything.</p>
     <div class="modal-row">
-      <span class="modal-email">zhiminzhangcn@gmail.com</span>
-      <button class="copy-btn" id="copy-btn" type="button">
-        <span class="copy-label">Copy</span>
+      <span class="modal-email" id="modal-email">zhiminzhangcn@gmail.com</span>
+      <button class="copy-btn" id="copy-btn" data-copy-email type="button" aria-label="Copy email address">
+        <span class="copy-label" role="status" aria-live="polite">Copy</span>
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
           <rect x="3.6" y="3.6" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.1"/>
           <path d="M8.4 1.4H2.7A1.3 1.3 0 0 0 1.4 2.7v5.7" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
@@ -212,7 +185,7 @@
     <a class="modal-mailto" href="mailto:zhiminzhangcn@gmail.com">Open in mail app →</a>
   </div>
 </div>
-
-<script src="project.js"></script>
+<script src="../app.js?v=cloud-b-6"></script>
+<script src="project.js?v=cloud-b-6"></script>
 </body>
 </html>
