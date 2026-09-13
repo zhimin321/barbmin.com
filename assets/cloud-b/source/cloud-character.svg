@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="360" height="230" viewBox="0 0 360 230">
+  <!-- Editable linked composition; keep this source folder with its parent assets. -->
+  <g id="cloud-body" inkscape:label="Natural cloud body" inkscape:groupmode="layer">
+    <image href="cloud-body.png" x="25.2" y="9.2" width="309.6" height="197.8" preserveAspectRatio="xMidYMid meet"/>
+  </g>
+  <g id="expression-and-arms" inkscape:label="Editable doodle overlay" inkscape:groupmode="layer">
+    <image href="../cloud-doodle.svg" width="360" height="230"/>
+  </g>
+</svg>

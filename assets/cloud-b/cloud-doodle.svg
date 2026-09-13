@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="230" viewBox="0 0 360 230">
+  <!-- Original editable overlay. Cloud body stays on its own raster layer. -->
+  <g id="face" fill="#111820">
+    <ellipse cx="161" cy="140" rx="3.3" ry="6.1" transform="rotate(-9 161 140)"/>
+    <ellipse cx="194" cy="135" rx="3.1" ry="6" transform="rotate(-9 194 135)"/>
+    <g fill="none" stroke="#111820" stroke-width="2.3" stroke-linecap="round">
+      <path d="M177 154q7 4 12-3"/>
+      <path d="M178 115q8 1 13-5"/>
+    </g>
+  </g>
+  <g id="arms" fill="none" stroke="#111820" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M114 165c-4 8-16 18-15 23 2 6 20 0 26 2"/>
+    <path d="M114 165c-10-2-9-7-5-7l6 3c-8-7-3-9 1-5l4 6"/>
+    <path d="M253 168c11 10 20 20 4 22l-15-1"/>
+    <path d="M242 189c-5-4-10 0-12 4m13-3-8 5m11-4-6 5"/>
+  </g>
+  <path id="resting-line" d="M37 194q76-3 144-2t141 0" fill="none" stroke="#111820" stroke-width="1.4" stroke-linecap="round"/>
+</svg>
