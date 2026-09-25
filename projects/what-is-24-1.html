@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="../index.css?v=cloud-b-6">
 <link rel="stylesheet" href="../cloud-home.css?v=cloud-b-6">
 <link rel="stylesheet" href="project.css?v=cloud-b-6">
-<link rel="stylesheet" href="timecode.css?v=3">
+<link rel="stylesheet" href="timecode.css?v=5">
 </head>
 <body class="cloud-home cloud-inner">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -73,23 +73,27 @@
       </figure>
     </section>
     <section class="tc-panel" id="round" aria-labelledby="title-round">
-      <div class="tc-feature-copy"><p class="tc-eyebrow">02 / Round</p><h2 id="title-round">Delivery rules, without the mental maths.</h2><p>Adding a delivery gap becomes awkward when seconds roll into the next minute. Round brings the offset and rounding rule into one step.</p><p>Choose an offset, interval and direction, then copy the result into your delivery workflow.</p><p class="tc-feature-note">Flexible offsets · Rounding controls</p></div>
-      <figure class="tc-preview">
-        <div class="tc-preview-bar"><span>24+1 <span class="tc-preview-name">/ Round</span></span><span class="tc-draft">Illustrative preview</span></div>
-        <div class="tc-demo"><div class="tc-demo-input"><span class="tc-label">Timecode + settings</span><pre>00:24:48:00
-Offset  +10 seconds
-Round up  ·  5-second interval</pre></div><div class="tc-demo-output"><span class="tc-label">Rounded timecode</span><pre>00:25:00:00</pre><span class="tc-copy-label">Ready to copy</span></div></div>
-        <figcaption><strong>Add the gap. Handle the rollover.</strong><span>Screenshot placeholder — final tool capture to follow.</span></figcaption>
+      <div class="tc-feature-copy">
+        <p class="tc-eyebrow">02 / Round</p>
+        <h2 id="title-round">Let 24+1 work out where the next segment starts.</h2>
+        <p>It’s a busy Friday afternoon. Ten episodes need to be split into segments and exported. The last thing I want to do is repeatedly add 10 seconds to a timecode like 00:19:58:00, then round up to the next five-second mark.</p>
+        <p>That repetitive calculation is what first inspired 24+1. Round applies the delivery offset and rounding rule, including the awkward rollovers into the next minute. Let the calculator handle the arithmetic, and leave a little more time for a coffee and a final check.</p>
+        <p class="tc-feature-note">Flexible offsets · Rounding controls</p>
+      </div>
+      <figure class="tc-screenshot">
+        <a class="shot-open tc-screenshot-crop tc-round-crop" href="../assets/timecode-round.png" aria-label="Enlarge Round screenshot">
+          <img src="../assets/timecode-round.png" width="2020" height="1440" alt="Round adds a 10-second offset to 00:19:58:00 and rounds up to a five-second interval, returning 00:20:10:00 at 25 fps." loading="lazy">
+        </a>
+        <figcaption>Add 10 seconds, round up to the next five-second mark: 00:19:58:00 → 00:20:10:00.<span>Click to enlarge ↗</span></figcaption>
       </figure>
     </section>
     <section class="tc-panel" id="duration" aria-labelledby="title-duration">
       <div class="tc-feature-copy"><p class="tc-eyebrow">03 / Duration</p><h2 id="title-duration">From in and out to a clear duration.</h2><p>Checking a segment length should be a quick step. Duration brings the start and end timecodes together in one focused view.</p><p>Choose the frame rate and whether to include the end frame, so the calculation matches the task.</p><p class="tc-feature-note">Frame-rate selection · End-frame control</p></div>
-      <figure class="tc-preview">
-        <div class="tc-preview-bar"><span>24+1 <span class="tc-preview-name">/ Duration</span></span><span class="tc-draft">Illustrative preview</span></div>
-        <div class="tc-demo"><div class="tc-demo-input"><span class="tc-label">Start / End</span><pre>00:01:00:00
-00:02:30:00
-25 fps  ·  End frame excluded</pre></div><div class="tc-demo-output"><span class="tc-label">Duration</span><pre>00:01:30:00</pre><span class="tc-copy-label">Ready to copy</span></div></div>
-        <figcaption><strong>Two timecodes → one duration</strong><span>Screenshot placeholder — final tool capture to follow.</span></figcaption>
+      <figure class="tc-screenshot">
+        <a class="shot-open tc-screenshot-crop tc-duration-crop" href="../assets/timecode-duration.png" aria-label="Enlarge Duration screenshot">
+          <img src="../assets/timecode-duration.png" width="2036" height="1442" alt="Duration calculates from 00:12:44:00 to 00:21:12:24 at 25 fps with Include end frame selected, returning 00:08:29:00." loading="lazy">
+        </a>
+        <figcaption>Two timecodes → one duration<span>Click to enlarge ↗</span></figcaption>
       </figure>
     </section>
     <section class="tc-panel" id="calculate" aria-labelledby="title-calculate">

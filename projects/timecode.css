@@ -65,3 +65,9 @@
 .tc-screenshot-crop img { display:block; position:absolute; width:118.44%; max-width:none; height:auto; left:-8.1%; top:-16.76%; }
 .tc-screenshot figcaption { padding-top:14px; color:#526171; font-size:13px; line-height:1.6; }
 .tc-screenshot figcaption span { display:block; color:#0054c5; font-size:12px; margin-top:5px; }
+
+.tc-round-crop { aspect-ratio:1613 / 978; }
+.tc-round-crop img { width:116.86%; left:-6.94%; top:-20.65%; }
+
+.tc-duration-crop { aspect-ratio:1603 / 946; }
+.tc-duration-crop img { width:117.78%; left:-7.17%; top:-22.09%; }
