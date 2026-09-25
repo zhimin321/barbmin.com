@@ -71,3 +71,7 @@
 
 .tc-duration-crop { aspect-ratio:1603 / 946; }
 .tc-duration-crop img { width:117.78%; left:-7.17%; top:-22.09%; }
+
+.tc-adoption { display:block; }
+.tc-adoption-placeholder { max-width:72ch; border-left:0; padding:0; }
+.tc-adoption-placeholder h2 { margin-top:14px; }
