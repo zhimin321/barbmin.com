@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>What is 24+1? — Zhimin Barbara Zhang</title>
-<meta name="description" content="24+1 — broadcast timecode maths without the mental gymnastics. Add a delivery gap, round to the nearest 0 or 5, and carry every rollover correctly.">
+<meta name="description" content="24+1 — a broadcast timecode calculator for reformatting, rounding, duration and everyday timecode calculations.">
 <link rel="icon" href="../assets/logo.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="../index.css?v=cloud-b-6">
 <link rel="stylesheet" href="../cloud-home.css?v=cloud-b-6">
 <link rel="stylesheet" href="project.css?v=cloud-b-6">
+<link rel="stylesheet" href="timecode.css?v=3">
 </head>
 <body class="cloud-home cloud-inner">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -41,90 +42,73 @@
 <header class="phero"><div class="wrap"><a class="page-back" href="../index.html#projects">← All projects</a>    <div class="cloud-character" aria-hidden="true">
       <img class="cloud-body" src="../assets/cloud-b/cloud-body.webp" alt="" width="720" height="480" fetchpriority="high">
       <img src="../assets/cloud-b/cloud-doodle.svg" alt="" width="360" height="230">
-    </div><h1>What is 24+1?</h1><p class="sub">Broadcast timecode maths, without the mental gymnastics.</p><p class="tagline">The frame where one second rolls into the next.</p></div></header>
+    </div><h1>What is 24+1?</h1><p class="sub">Broadcast timecode calculator</p><a class="tc-launch" href="https://businessmatter.github.io/broadcast-timecode-calculator/" target="_blank" rel="noopener noreferrer">Try the calculator <span aria-hidden="true">↗</span></a></div></header>
 
-<!-- ══════════════ CASE STUDY ══════════════ -->
-<article class="body" role="main" id="main" tabindex="-1">
-  <div class="wrap">
-
-    <section class="chapter">
-      <span class="num">01 — The problem</span>
-      <h2>The sums that don’t fit a calculator</h2>
-      <div class="measure">
-        <p>Broadcast delivery runs on timecode. Program durations and segment lengths all have to be
-          worked out to the exact frame — and off-the-shelf timecode calculators handle the everyday
-          sums fine. Where they fall short is the delivery-specific rules.</p>
-        <p>Many delivery systems require each segment to be spaced by a fixed gap — say 5 or 10 seconds
-          — and then rounded to the nearest 0 or 5. That sounds trivial until the numbers roll over: a
-          value like <strong>00:24:48:00</strong> or <strong>00:19:59:00</strong> has to carry across
-          seconds, minutes, and frame boundaries all at once.</p>
-        <p>In practice, operators end up doing this in their head, under deadline — and it’s exactly
-          the kind of maths that’s easy to get wrong, and costly to catch later.</p>
+<main class="tc-main wrap" id="main" tabindex="-1">
+  <section class="tc-intro" aria-labelledby="tc-intro-title">
+    <h2 class="tc-eyebrow" id="tc-intro-title">Built for broadcast workflows</h2>
+    <p>24+1 brings everyday broadcast tasks into one timecode calculator: reformat timecodes in bulk, apply delivery offsets and rounding rules, calculate durations with or without the end frame, and add, subtract or sum time values. Each function is shaped by the practical needs of broadcast work.</p>
+  </section>
+  <section class="tc-showcase" aria-label="Explore the calculator">
+    <nav class="tc-tabs" aria-label="Calculator features">
+      <a href="#reformat" id="tab-reformat"><span class="tc-tab-number">01</span>Reformat</a>
+      <a href="#round" id="tab-round"><span class="tc-tab-number">02</span>Round</a>
+      <a href="#duration" id="tab-duration"><span class="tc-tab-number">03</span>Duration</a>
+      <a href="#calculate" id="tab-calculate"><span class="tc-tab-number">04</span>Calculate</a>
+    </nav>
+    <section class="tc-panel" id="reformat" aria-labelledby="title-reformat">
+      <div class="tc-feature-copy">
+        <p class="tc-eyebrow">01 / Reformat</p>
+        <h2 id="title-reformat">Let’s speak the same timecode language.</h2>
+        <p>Producers and editors sometimes speak different languages—even when they’re talking about the same moment. Reformat turns their timecodes into the format you need.</p>
+        <p>A long feedback list from your producer? Paste it into 24+1. It extracts the timecodes, leaves out the comments, and gives you a clean list to copy in one go.</p>
+        <p>Your editor says 00:12:12:12, but you only need minutes and seconds? Switch from hh:mm:ss:ff to mm:ss, and carry on with the conversation.</p>
+        <p class="tc-feature-note">Batch input · Consistent output</p>
       </div>
-
-      <div class="examples">
-        <div class="example">
-          <span class="row"><span>00:24:48:00</span><span class="arrow">→</span><span class="out">00:25:00:00</span></span>
-          <span class="cap">48 seconds carries into the next minute.</span>
-        </div>
-        <div class="example">
-          <span class="row"><span>00:19:59:00</span><span class="arrow">→</span><span class="out">00:20:10:00</span></span>
-          <span class="cap">The awkward one, sitting right on :59.</span>
-        </div>
-      </div>
-      <p class="exnote">Both worked through 24+1’s rounding routine — a 10-second gap,
-        rounded up to the nearest 5.</p>
+      <figure class="tc-screenshot">
+        <a class="shot-open tc-screenshot-crop" href="../assets/timecode-reformat.png" aria-label="Enlarge Reformat screenshot">
+          <img src="../assets/timecode-reformat.png" width="2046" height="1654" alt="Reformat extracts 01:12, 03:24 and 05:06 from feedback notes and returns three timecodes in hh:mm:ss:ff format, with a Copy all button." loading="lazy">
+        </a>
+        <figcaption>From feedback notes to a clean, copy-ready timecode list.<span>Click to enlarge ↗</span></figcaption>
+      </figure>
     </section>
-
-    <section class="chapter">
-      <span class="num">02 — The solution</span>
-      <h2>Paste, add, round, copy</h2>
-      <div class="measure">
-        <p><strong>24+1 is a focused utility built for that exact gap.</strong> Paste a timecode into the
-          box, choose the frame rate, and pick how many seconds to add (5, 10, or whatever the spec calls
-          for).</p>
-        <p>24+1 adds the gap, rounds the result to the nearest 0 or 5, and handles every second, minute,
-          hour and frame-rate rollover correctly — including the awkward cases that sit right on
-          <strong>:59</strong>. One click copies the finished timecode straight into the editing software
-          or cue sheet, so there’s no retyping and no carry errors.</p>
-
-        <figure class="codefig">
-          <div class="codeblock is-inline">
-            <div class="codeblock-bar">
-              <span class="file">rounded_timecode.py</span>
-              <span class="lang">Python</span>
-            </div>
-            <pre class="code"><code><span class="l"><i class="kw">def</i> <i class="fn">rounded_timecode</i><i class="op">(</i><i class="var">tc</i><i class="op">):</i></span><span class="l">    <i class="var">parts</i> <i class="op">=</i> <i class="var">tc</i><i class="op">.</i><i class="fn">split</i><i class="op">(</i><i class="str">&#x27;:&#x27;</i><i class="op">)</i></span><span class="l"></span><span class="l">    <i class="kw">if</i> <i class="fn">len</i><i class="op">(</i><i class="var">parts</i><i class="op">)</i> <i class="op">!=</i> <i class="num">4</i><i class="op">:</i></span><span class="l">        <i class="kw">return</i> <i class="str">&quot;Invalid timecode format&quot;</i></span><span class="l"></span><span class="l">    <i class="kw">try</i><i class="op">:</i></span><span class="l">        <i class="var">hh</i><i class="op">,</i> <i class="var">mm</i><i class="op">,</i> <i class="var">ss</i><i class="op">,</i> <i class="var">ff</i> <i class="op">=</i> <i class="fn">map</i><i class="op">(</i><i class="fn">int</i><i class="op">,</i> <i class="var">parts</i><i class="op">)</i></span><span class="l">    <i class="kw">except</i> <i class="fn">ValueError</i><i class="op">:</i></span><span class="l">        <i class="kw">return</i> <i class="str">&quot;Invalid numbers in timecode&quot;</i></span><span class="l"></span><span class="l">    <i class="var">total_seconds</i> <i class="op">=</i> <i class="var">hh</i> <i class="op">*</i> <i class="num">3600</i> <i class="op">+</i> <i class="var">mm</i> <i class="op">*</i> <i class="num">60</i> <i class="op">+</i> <i class="var">ss</i></span><span class="l"></span><span class="l">    <i class="com"># Add 10 seconds</i></span><span class="l">    <i class="var">total_seconds</i> <i class="op">+=</i> <i class="num">10</i></span><span class="l"></span><span class="l">    <i class="com"># Round UP to nearest 5</i></span><span class="l">    <i class="var">remainder</i> <i class="op">=</i> <i class="var">total_seconds</i> <i class="op">%</i> <i class="num">5</i></span><span class="l">    <i class="kw">if</i> <i class="var">remainder</i> <i class="op">!=</i> <i class="num">0</i><i class="op">:</i></span><span class="l">        <i class="var">total_seconds</i> <i class="op">+=</i> <i class="op">(</i><i class="num">5</i> <i class="op">-</i> <i class="var">remainder</i><i class="op">)</i></span><span class="l"></span><span class="l">    <i class="var">hh</i> <i class="op">=</i> <i class="var">total_seconds</i> <i class="op">//</i> <i class="num">3600</i></span><span class="l">    <i class="var">mm</i> <i class="op">=</i> <i class="op">(</i><i class="var">total_seconds</i> <i class="op">%</i> <i class="num">3600</i><i class="op">)</i> <i class="op">//</i> <i class="num">60</i></span><span class="l">    <i class="var">ss</i> <i class="op">=</i> <i class="var">total_seconds</i> <i class="op">%</i> <i class="num">60</i></span><span class="l"></span><span class="l">    <i class="kw">return</i> f&quot;<i class="op">{</i><i class="var">hh</i><i class="op">:</i>02<i class="op">}</i>:<i class="op">{</i><i class="var">mm</i><i class="op">:</i>02<i class="op">}</i>:<i class="op">{</i><i class="var">ss</i><i class="op">:</i>02<i class="op">}</i>:00&quot;</span><span class="l"></span><span class="l"></span><span class="l"><i class="kw">def</i> <i class="fn">main</i><i class="op">():</i></span><span class="l">    <i class="fn">print</i><i class="op">(</i><i class="str">&quot;Enter timecode HH:MM:SS:FF (type q to exit)\n&quot;</i><i class="op">)</i></span><span class="l"></span><span class="l">    <i class="kw">while</i> <i class="kw">True</i><i class="op">:</i></span><span class="l">        <i class="var">timecode</i> <i class="op">=</i> <i class="fn">input</i><i class="op">(</i><i class="str">&quot;timecode: &quot;</i><i class="op">).</i><i class="fn">strip</i><i class="op">()</i></span><span class="l"></span><span class="l">        <i class="kw">if</i> <i class="kw">not</i> <i class="var">timecode</i><i class="op">:</i></span><span class="l">            <i class="kw">continue</i></span><span class="l"></span><span class="l">        <i class="kw">if</i> <i class="var">timecode</i><i class="op">.</i><i class="fn">lower</i><i class="op">()</i> <i class="op">==</i> <i class="str">&quot;q&quot;</i><i class="op">:</i></span><span class="l">            <i class="fn">print</i><i class="op">(</i><i class="str">&quot;Exiting program...&quot;</i><i class="op">)</i></span><span class="l">            <i class="kw">break</i></span><span class="l"></span><span class="l">        <i class="fn">print</i><i class="op">(</i>f&#x27;\n<i class="op">{</i><i class="fn">rounded_timecode</i><i class="op">(</i><i class="var">timecode</i><i class="op">)}</i>\n&#x27;<i class="op">)</i></span></code></pre>
-          </div>
-          <figcaption>The rounding routine: parse, add the gap, round up to the nearest 5,
-            then rebuild the timecode across every second, minute and hour boundary.</figcaption>
-        </figure>
-      </div>
+    <section class="tc-panel" id="round" aria-labelledby="title-round">
+      <div class="tc-feature-copy"><p class="tc-eyebrow">02 / Round</p><h2 id="title-round">Delivery rules, without the mental maths.</h2><p>Adding a delivery gap becomes awkward when seconds roll into the next minute. Round brings the offset and rounding rule into one step.</p><p>Choose an offset, interval and direction, then copy the result into your delivery workflow.</p><p class="tc-feature-note">Flexible offsets · Rounding controls</p></div>
+      <figure class="tc-preview">
+        <div class="tc-preview-bar"><span>24+1 <span class="tc-preview-name">/ Round</span></span><span class="tc-draft">Illustrative preview</span></div>
+        <div class="tc-demo"><div class="tc-demo-input"><span class="tc-label">Timecode + settings</span><pre>00:24:48:00
+Offset  +10 seconds
+Round up  ·  5-second interval</pre></div><div class="tc-demo-output"><span class="tc-label">Rounded timecode</span><pre>00:25:00:00</pre><span class="tc-copy-label">Ready to copy</span></div></div>
+        <figcaption><strong>Add the gap. Handle the rollover.</strong><span>Screenshot placeholder — final tool capture to follow.</span></figcaption>
+      </figure>
     </section>
-
-    <section class="chapter">
-      <span class="num">03 — The impact</span>
-      <h2>One less thing to get wrong</h2>
-
-      <div class="points">
-        <div class="point">
-          <span class="n">01</span>
-          <p>Takes the mental math out of the most error-prone step in delivery prep.</p>
-        </div>
-        <div class="point">
-          <span class="n">02</span>
-          <p>Cuts delivery time by turning a stop-and-recalculate moment into a paste-and-copy one.</p>
-        </div>
-        <div class="point">
-          <span class="n">03</span>
-          <p>Reduces mistakes on exactly the rollover edge cases where they’re most likely — and most
-            expensive to fix downstream.</p>
-        </div>
-      </div>
+    <section class="tc-panel" id="duration" aria-labelledby="title-duration">
+      <div class="tc-feature-copy"><p class="tc-eyebrow">03 / Duration</p><h2 id="title-duration">From in and out to a clear duration.</h2><p>Checking a segment length should be a quick step. Duration brings the start and end timecodes together in one focused view.</p><p>Choose the frame rate and whether to include the end frame, so the calculation matches the task.</p><p class="tc-feature-note">Frame-rate selection · End-frame control</p></div>
+      <figure class="tc-preview">
+        <div class="tc-preview-bar"><span>24+1 <span class="tc-preview-name">/ Duration</span></span><span class="tc-draft">Illustrative preview</span></div>
+        <div class="tc-demo"><div class="tc-demo-input"><span class="tc-label">Start / End</span><pre>00:01:00:00
+00:02:30:00
+25 fps  ·  End frame excluded</pre></div><div class="tc-demo-output"><span class="tc-label">Duration</span><pre>00:01:30:00</pre><span class="tc-copy-label">Ready to copy</span></div></div>
+        <figcaption><strong>Two timecodes → one duration</strong><span>Screenshot placeholder — final tool capture to follow.</span></figcaption>
+      </figure>
     </section>
-
-  </div>
-</article>
+    <section class="tc-panel" id="calculate" aria-labelledby="title-calculate">
+      <div class="tc-feature-copy"><p class="tc-eyebrow">04 / Calculate</p><h2 id="title-calculate">Keep the timing. Skip the working out.</h2><p>Programme timings often involve more than one sum. Calculate provides a space to add and subtract time values or total a list of durations.</p><p>Work through an expression or bring several durations together, with a result ready to copy.</p><p class="tc-feature-note">Expressions · Sum lists</p></div>
+      <figure class="tc-preview">
+        <div class="tc-preview-bar"><span>24+1 <span class="tc-preview-name">/ Calculate</span></span><span class="tc-draft">Illustrative preview</span></div>
+        <div class="tc-demo"><div class="tc-demo-input"><span class="tc-label">Expression</span><pre>00:12:00:00
++ 00:04:12:00
+− 00:00:30:00</pre></div><div class="tc-demo-output"><span class="tc-label">Result</span><pre>00:15:42:00</pre><span class="tc-copy-label">Ready to copy</span></div></div>
+        <figcaption><strong>Everyday sums, in timecode</strong><span>Screenshot placeholder — final tool capture to follow.</span></figcaption>
+      </figure>
+    </section>
+  </section>
+  <section class="tc-adoption" aria-labelledby="tc-adoption-title">
+    <div><p class="tc-eyebrow">In the workflow</p><h2 id="tc-adoption-title">Built around real production tasks.</h2><p>This space will tell the story of the teams using 24+1, the tasks it supports and how their feedback has shaped the tool.</p></div>
+    <div class="tc-adoption-placeholder"><span class="tc-draft">Details to come</span><h3>Teams &amp; everyday use</h3><p>Department names, confirmed usage and a short example from the workflow will appear here.</p></div>
+  </section>
+  <div class="tc-closing"><p>Have a timecode to work out?</p><a class="tc-launch" href="https://businessmatter.github.io/broadcast-timecode-calculator/" target="_blank" rel="noopener noreferrer">Try the calculator <span aria-hidden="true">↗</span></a></div>
+</main>
 
 <footer class="cloud-footer"><div class="cloud-container"><a href="../index.html#projects">← All projects</a><span>© <span id="year"></span> Zhimin Barbara Zhang</span><a href="mailto:zhiminzhangcn@gmail.com" data-contact>Get in touch ↗</a><a href="https://www.linkedin.com/in/zhimin-zhang-creative" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></footer>
 <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
@@ -150,6 +134,7 @@
   </div>
 </div>
 <script src="../app.js?v=cloud-b-6"></script>
+<script src="timecode.js?v=1"></script>
 <script src="project.js?v=cloud-b-6"></script>
 </body>
 </html>
