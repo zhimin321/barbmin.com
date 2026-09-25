@@ -3,6 +3,7 @@
 .phero .tc-launch { margin-top:22px; }
 .tc-main { padding-top:56px; padding-bottom:52px; scroll-margin-top:90px; }
 .tc-intro { max-width:82ch; padding-bottom:40px; }
+.tc-intro>p+p { margin-top:16px; }
 .tc-main .tc-intro h2 { font-size:12px; line-height:1.5; letter-spacing:.13em; margin-bottom:16px; }
 .tc-eyebrow { font-size:11px; font-weight:600; letter-spacing:.13em; text-transform:uppercase; color:#526171; margin-bottom:16px; }
 .tc-main h2 { font-size:clamp(26px,3vw,34px); line-height:1.18; letter-spacing:-.04em; font-weight:600; }
@@ -18,7 +19,7 @@
 .tc-feature-copy h2 { margin-bottom:22px; }
 .tc-feature-copy>p+p { margin-top:16px; }
 .tc-feature-note { border-top:1px solid #dce5ed; padding-top:18px; color:#0054c5; font-size:12px; line-height:1.6; }
-.tc-preview { min-width:0; background:#e2f2fd; border:1px solid #d5e6f2; border-radius:14px; overflow:hidden; }
+.tc-preview { padding-bottom:22px; min-width:0; background:#e2f2fd; border:1px solid #d5e6f2; border-radius:14px; overflow:hidden; }
 .tc-preview-bar { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:20px 24px; font-weight:700; font-size:18px; }
 .tc-preview-name { font-size:12px; color:#526171; font-weight:400; margin-left:6px; }
 .tc-draft { display:inline-flex; width:fit-content; color:#526171; background:#fff; border:1px solid #dce5ed; padding:5px 9px; border-radius:5px; font-size:10px; font-weight:500; letter-spacing:.02em; }

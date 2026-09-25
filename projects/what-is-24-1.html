@@ -45,9 +45,9 @@
     </div><h1>What is 24+1?</h1><p class="sub">Broadcast timecode calculator</p><a class="tc-launch" href="https://businessmatter.github.io/broadcast-timecode-calculator/" target="_blank" rel="noopener noreferrer">Try the calculator <span aria-hidden="true">↗</span></a></div></header>
 
 <main class="tc-main wrap" id="main" tabindex="-1">
-  <section class="tc-intro" aria-labelledby="tc-intro-title">
-    <h2 class="tc-eyebrow" id="tc-intro-title">Built for broadcast workflows</h2>
-    <p>24+1 brings everyday broadcast tasks into one timecode calculator: reformat timecodes in bulk, apply delivery offsets and rounding rules, calculate durations with or without the end frame, and add, subtract or sum time values. Each function is shaped by the practical needs of broadcast work.</p>
+  <section class="tc-intro" aria-label="How 24+1 started">
+    <p>It’s a busy Friday afternoon. Ten episodes need to be split into segments and exported. The last thing I want to do is keep calculating where the next segment starts. That repetitive arithmetic inspired 24+1.</p>
+    <p>What started with offsets and rounding grew into one calculator for everyday broadcast tasks: reformatting timecodes in bulk, checking durations, and adding, subtracting or summing time values.</p>
   </section>
   <section class="tc-showcase" aria-label="Explore the calculator">
     <nav class="tc-tabs" aria-label="Calculator features">
@@ -60,55 +60,50 @@
       <div class="tc-feature-copy">
         <p class="tc-eyebrow">01 / Reformat</p>
         <h2 id="title-reformat">Let’s speak the same timecode language.</h2>
-        <p>Producers and editors sometimes speak different languages—even when they’re talking about the same moment. Reformat turns their timecodes into the format you need.</p>
-        <p>A long feedback list from your producer? Paste it into 24+1. It extracts the timecodes, leaves out the comments, and gives you a clean list to copy in one go.</p>
-        <p>Your editor says 00:12:12:12, but you only need minutes and seconds? Switch from hh:mm:ss:ff to mm:ss, and carry on with the conversation.</p>
+        <p>Producers and editors don’t always speak the same timecode language. Reformat translates.</p>
+        <p>Paste a producer’s feedback list to extract the timecodes, leave out the comments, and copy the results in one go. Only need minutes and seconds? Switch from hh:mm:ss to mm:ss, and carry on with the conversation.</p>
         <p class="tc-feature-note">Batch input · Consistent output</p>
       </div>
       <figure class="tc-screenshot">
         <a class="shot-open tc-screenshot-crop" href="../assets/timecode-reformat.png" aria-label="Enlarge Reformat screenshot">
           <img src="../assets/timecode-reformat.png" width="2046" height="1654" alt="Reformat extracts 01:12, 03:24 and 05:06 from feedback notes and returns three timecodes in hh:mm:ss:ff format, with a Copy all button." loading="lazy">
         </a>
-        <figcaption>From feedback notes to a clean, copy-ready timecode list.<span>Click to enlarge ↗</span></figcaption>
       </figure>
     </section>
     <section class="tc-panel" id="round" aria-labelledby="title-round">
       <div class="tc-feature-copy">
         <p class="tc-eyebrow">02 / Round</p>
-        <h2 id="title-round">Let 24+1 work out where the next segment starts.</h2>
-        <p>It’s a busy Friday afternoon. Ten episodes need to be split into segments and exported. The last thing I want to do is repeatedly add 10 seconds to a timecode like 00:19:58:00, then round up to the next five-second mark.</p>
-        <p>That repetitive calculation is what first inspired 24+1. Round applies the delivery offset and rounding rule, including the awkward rollovers into the next minute. Let the calculator handle the arithmetic, and leave a little more time for a coffee and a final check.</p>
+        <h2 id="title-round">Work out where the next segment starts.</h2>
+        <p>Add 10 seconds to 00:19:58:00, then round up to the next five-second mark. Round applies the delivery offset and rounding rule to return 00:20:10:00—even across the minute boundary.</p>
+        <p>Less repetitive arithmetic. A little more time for coffee and a final check.</p>
         <p class="tc-feature-note">Flexible offsets · Rounding controls</p>
       </div>
       <figure class="tc-screenshot">
         <a class="shot-open tc-screenshot-crop tc-round-crop" href="../assets/timecode-round.png" aria-label="Enlarge Round screenshot">
           <img src="../assets/timecode-round.png" width="2020" height="1440" alt="Round adds a 10-second offset to 00:19:58:00 and rounds up to a five-second interval, returning 00:20:10:00 at 25 fps." loading="lazy">
         </a>
-        <figcaption>Add 10 seconds, round up to the next five-second mark: 00:19:58:00 → 00:20:10:00.<span>Click to enlarge ↗</span></figcaption>
       </figure>
     </section>
     <section class="tc-panel" id="duration" aria-labelledby="title-duration">
-      <div class="tc-feature-copy"><p class="tc-eyebrow">03 / Duration</p><h2 id="title-duration">From in and out to a clear duration.</h2><p>Checking a segment length should be a quick step. Duration brings the start and end timecodes together in one focused view.</p><p>Choose the frame rate and whether to include the end frame, so the calculation matches the task.</p><p class="tc-feature-note">Frame-rate selection · End-frame control</p></div>
+      <div class="tc-feature-copy"><p class="tc-eyebrow">03 / Duration</p><h2 id="title-duration">From in and out to a clear duration.</h2><p>Check a segment’s duration from its in and out timecodes. Choose the frame rate and whether to include the end frame to match the task.</p><p class="tc-feature-note">Frame-rate selection · End-frame control</p></div>
       <figure class="tc-screenshot">
         <a class="shot-open tc-screenshot-crop tc-duration-crop" href="../assets/timecode-duration.png" aria-label="Enlarge Duration screenshot">
           <img src="../assets/timecode-duration.png" width="2036" height="1442" alt="Duration calculates from 00:12:44:00 to 00:21:12:24 at 25 fps with Include end frame selected, returning 00:08:29:00." loading="lazy">
         </a>
-        <figcaption>Two timecodes → one duration<span>Click to enlarge ↗</span></figcaption>
       </figure>
     </section>
     <section class="tc-panel" id="calculate" aria-labelledby="title-calculate">
-      <div class="tc-feature-copy"><p class="tc-eyebrow">04 / Calculate</p><h2 id="title-calculate">Keep the timing. Skip the working out.</h2><p>Programme timings often involve more than one sum. Calculate provides a space to add and subtract time values or total a list of durations.</p><p>Work through an expression or bring several durations together, with a result ready to copy.</p><p class="tc-feature-note">Expressions · Sum lists</p></div>
+      <div class="tc-feature-copy"><p class="tc-eyebrow">04 / Calculate</p><h2 id="title-calculate">Keep the timing. Skip the working out.</h2><p>Programme timings often involve more than one sum. Add and subtract time values, or total a list of durations, then copy the result.</p><p class="tc-feature-note">Expressions · Sum lists</p></div>
       <figure class="tc-preview">
         <div class="tc-preview-bar"><span>24+1 <span class="tc-preview-name">/ Calculate</span></span></div>
         <div class="tc-demo"><div class="tc-demo-input"><span class="tc-label">Expression</span><pre>00:12:00:00
 + 00:04:12:00
 − 00:00:30:00</pre></div><div class="tc-demo-output"><span class="tc-label">Result</span><pre>00:15:42:00</pre><span class="tc-copy-label">Ready to copy</span></div></div>
-        <figcaption><strong>Everyday sums, in timecode</strong></figcaption>
       </figure>
     </section>
   </section>
   <section class="tc-adoption" aria-labelledby="tc-adoption-title">
-    <div class="tc-adoption-placeholder"><h2 id="tc-adoption-title">Teams &amp; everyday use</h2><p>24+1 is used by newsroom, TV production and multilingual social media teams to simplify everyday timecode tasks. It’s completely free to use, helping teams save time without adding another software cost.</p></div>
+    <div class="tc-adoption-placeholder"><h2 id="tc-adoption-title">Teams &amp; everyday use</h2><p>24+1 is used by newsroom, TV production and multilingual social media teams for everyday timecode tasks. It’s free to use—no extra software cost.</p></div>
   </section>
   <div class="tc-closing"><p>Have a timecode to work out?</p><a class="tc-launch" href="https://businessmatter.github.io/broadcast-timecode-calculator/" target="_blank" rel="noopener noreferrer">Try the calculator <span aria-hidden="true">↗</span></a></div>
 </main>
