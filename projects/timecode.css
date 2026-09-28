@@ -13,7 +13,7 @@
 .tc-tabs a[aria-selected="true"] { color:#0054c5; border-color:#0062e6; font-weight:600; }
 .tc-tabs a:hover { background:#f5faff; color:#0054c5; }
 .tc-tab-number { font-size:11px; font-weight:400; opacity:.7; }
-.tc-panel { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.65fr); gap:48px; padding:40px 0 48px; min-height:460px; align-items:start; scroll-margin-top:100px; }
+.tc-panel { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.65fr); gap:48px; padding:40px 0 48px; min-height:580px; align-items:start; scroll-margin-top:100px; }
 .tc-panel[hidden] { display:none; }
 .tc-feature-copy { padding-top:10px; }
 .tc-feature-copy h2 { margin-bottom:22px; }
@@ -38,7 +38,7 @@
 .tc-adoption-placeholder h3 { font-size:20px; letter-spacing:-.02em; margin:14px 0 10px; font-weight:500; }
 .tc-closing { display:flex; justify-content:space-between; align-items:center; gap:24px; background:#f2f8fd; border-radius:12px; padding:26px 30px; }
 .tc-closing p { font-size:20px; letter-spacing:-.02em; }
-@media(max-width:859px) {
+@media(max-width:999px) {
   .tc-panel { gap:28px; grid-template-columns:1fr; min-height:0; }
   .tc-feature-copy { max-width:65ch; }
   .tc-adoption { gap:32px; }

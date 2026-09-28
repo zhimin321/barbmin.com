@@ -50,3 +50,13 @@
   addEventListener('popstate', fromHash);
   fromHash();
 })();
+
+/* On phones, retain native image navigation and browser zoom for this page only. */
+(() => {
+  const phone = matchMedia('(max-width: 767px)');
+  document.querySelectorAll('.tc-screenshot .shot-open').forEach(link => {
+    link.addEventListener('click', event => {
+      if (phone.matches) event.stopImmediatePropagation();
+    }, { capture: true });
+  });
+})();
