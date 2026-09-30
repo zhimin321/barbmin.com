@@ -150,3 +150,9 @@ Step 02 full recording v2 — 2026-10-01
 - Cropped the left black border: 1834:2172:1166:0; preserved full 10.7-second duration and native cropped resolution, H.264 CRF 20 with faststart. Omitted silent audio.
 - Updated full-size link cache version to v=2. Embedded 7.8-second video and its poster unchanged by this update.
 - Inspected cropped Premiere frame. Browser verification passed: full-size link opens the new 1834×2172 video and plays to completion.
+
+Step 03 replacement recording — 2026-10-01
+- Replaced remap.mp4 with 03 resync.mp4, retaining full frame (3000×2172), entire approximately 20.4-second recording and original audio/video streams without re-encoding. Moved MP4 metadata to the beginning for streaming.
+- Refreshed the poster from the remapping interface at 8 seconds; updated intrinsic video dimensions and cache versions for embedded and full-size links.
+- Browser checks at 1440px and 390px: expandable demo plays to completion; correct resolution/duration; no horizontal overflow; full-size link references the new video.
+- Follow-up: unified Step 03 with the translucent gray icon-only play button, including hover/focus opacity; removed the full-size caption link. Desktop/mobile browser checks confirmed icon styling, link removal and playback.
