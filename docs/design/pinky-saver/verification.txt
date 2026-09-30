@@ -1,0 +1,85 @@
+Pinky Saver Shorts implementation — 2026-09-30
+
+Preview: http://127.0.0.1:4173/projects/pinky-saver.html
+Direct links: #shorts, #news-pkg, #shorts-script, #shorts-generate,
+#shorts-reuse, #shorts-premiere.
+
+Scope
+- Existing static HTML/CSS/JavaScript site; no added framework or build dependency.
+- Original Pinky Saver body is preserved in News PKG. Only its former main role/id
+  moved to the new single main landmark. Shared navigation, footer, contact and
+  image dialog remain unchanged. No changes to 24+1 or shared CSS/JavaScript.
+- Shorts is the default enhanced panel. Without JavaScript both features and the
+  complete script remain readable, with native links, details and video controls.
+- No commit, push or deployment performed.
+
+Approved asset decisions
+- The downloadable English DOCX copy uses British spellings neighbourhood and
+  Neighbourhood in blocks 6 and 8, as explicitly approved. Originals are untouched.
+- Inline script preview is extracted from the same downloadable DOCX. Run
+  python3 scripts/sync-pinky-script.py after replacing the download file.
+- The Premiere note explains that the finished video uses five captions with its
+  ending adjusted in the edit; downloads retain all twelve reference captions.
+
+Media
+- Web assets are in assets/pinky-saver/shorts/ (~3.5 MB total).
+- cat.mp4: H.264/AAC 720x1280, 29.04 seconds; original framing preserved.
+- generate.mp4: source recording 2.2–6.5 seconds, crop 1380x850 at (1390,290),
+  exported at 1104x680. Shows script upload and generation.
+- remap.mp4: source recording 13.5–18 seconds, crop 1380x600 at (1390,1170),
+  exported at 1104x480. Shows translated-script upload and resync.
+- Cuts and crops selected from inspected recording frames. No simulated footage.
+- Original Premiere screenshot is available inline and in the shared zoom dialog.
+  Default crop retains both caption tracks; small screens can scroll this crop.
+- Videos use posters and preload=none; playback is user-triggered with native
+  controls after launch. Feature switching pauses inactive videos.
+
+Validation
+- Chrome browser checks at 320, 390, 768 and 1440 CSS pixels: no page overflow for
+  either panel. Screenshots saved alongside this report.
+- All four workflow links scroll headings below the fixed site navigation;
+  all chapters remain visible; manual scrolling updates aria-current.
+- Panel arrow-key selection, refresh, back navigation and chapter hashes pass.
+- Script expand/collapse, remap disclosure, full screenshot disclosure pass.
+- All three download links yield actual local files; DOCX ZIP/XML opens correctly.
+- All three videos play and pause; changing panels pauses the active video.
+- Existing News PKG image dialog, mobile navigation and contact dialog pass.
+- 24+1 feature navigation and shared contact behavior pass.
+- No JavaScript page errors or local resource 404s in the browser run.
+- Local href/src/poster targets exist; IDs unique; no absolute local paths in HTML.
+- JavaScript syntax and git diff --check pass.
+- Live https://businessmatter.github.io/shorts_caption/ tested with the exact site
+  downloads: English DOCX, CPS 5, start 0 -> twelve SRT entries with all timecodes
+  matching reference.srt. Chinese DOCX + reference.srt -> twelve resynced entries,
+  all twelve timecodes preserved. Test downloads remain outside the website.
+
+Existing audit limitation
+scripts/verify-cloud-b.py compares against historical commit 8cd08b6 and fails
+on missing historical 24+1 prose. Confirmed the identical failure when its input
+files are read from the unchanged HEAD commit. It is not a Shorts regression.
+No other requested implementation decisions remain pending.
+
+Compact opening revision — approved follow-up
+- Reduced the Pinky Saver hero spacing and cloud size, and tightened the feature tabs.
+- Desktop video spans the introductory copy and step 01 in the right column.
+  The introduction is top-aligned; step 01 follows it immediately on the left.
+- Step 01 now reads "Prepare your script." as approved.
+- Steps 02–04 and downloads reclaim the full workflow content width.
+- At widths up to 900px, content follows a single-column reading order.
+- Rechecked 320/390/768/1440 widths, both panels, chapter anchors, scroll highlight,
+  keyboard tabs, video playback, downloads, contact/menu/image interactions.
+- Confirmed expanded script does not overlap step 02; sticky navigation stays below
+  the site header and finishes before the footer. No browser errors or local 404s.
+- New screenshots: compact-{320,390,768,1440}.png. Earlier shorts-* images document
+  the initial layout before this revision.
+
+Balanced spacing revision
+- Kept the spanning desktop video, with a 220px column and 44px column gaps.
+- Restored moderate hero/tab spacing and increased intro padding to 44px/36px.
+- Intro title uses 32px maximum type with 1.3 line-height and gentler letter spacing.
+- Increased space around chapter transitions; mobile intro also has more breathing room.
+- Checked 320/390/768/1024/1440 widths: no horizontal page overflow; anchors,
+  scrolling highlight, expanded script and both feature panels pass, no JS errors.
+- Step 01 section begins at 688px at 1440px width, with its heading visible within
+  a 900px-high viewport. Screenshot: balanced-opening.png.
+- Current screenshots are balanced-*.png; compact-* records the previous revision.
