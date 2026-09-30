@@ -92,3 +92,23 @@
 .ps-play:hover { background:#e8f5ff; }
 .ps-main figcaption a { display:inline-flex; align-items:center; min-height:44px; color:var(--ps-blue); }
 .ps-main #shorts .ps-play-status { font-size:13px; }
+
+/* The opening owns the resting video; playback extends into the reserved right gutter. */
+@media(min-width:901px) {
+ .ps-layout { --ps-expanded-width:clamp(220px,20vw,260px); grid-template-columns:145px minmax(0,1fr) var(--ps-expanded-width); column-gap:56px; }
+ .ps-opening { grid-column:1 / -1; grid-row:1; display:grid; grid-template-columns:subgrid; align-items:center; padding:40px 0 32px; border-bottom:1px solid var(--ps-line); }
+ .ps-opening .ps-lead { padding:0; border-bottom:0; }
+ .ps-main .ps-result { grid-row:1; padding-top:0; height:390px; position:relative; z-index:1; align-self:start; }
+ .ps-result .ps-player { width:180px; margin-left:auto; transition:width 240ms ease; }
+ .ps-result.is-expanded .ps-player { width:var(--ps-expanded-width); }
+ .ps-result figcaption { width:180px; margin-left:auto; transition:width 240ms ease; }
+ .ps-result.is-expanded figcaption { width:var(--ps-expanded-width); }
+ .ps-result .ps-play { width:48px; min-height:48px; padding:0; gap:0; border-color:transparent; background:rgba(255,255,255,.48); box-shadow:none; color:rgba(17,24,32,.8); transition:background 160ms ease; }
+ .ps-result .ps-play>span:first-child { margin-left:3px; font-size:18px; }
+ .ps-result .ps-play-label { display:none; }
+ .ps-result .ps-play:hover,.ps-result .ps-play:focus-visible { background:rgba(255,255,255,.86); }
+ .ps-collapse { position:absolute; top:8px; right:8px; min-height:44px; padding:8px 12px; border:0; border-radius:999px; color:#172632; background:rgba(255,255,255,.88); font:12px/1.5 Inter,sans-serif; cursor:pointer; }
+ .ps-collapse:hover { background:white; }
+}
+@media(max-width:900px) { .ps-collapse { display:none; } }
+@media(prefers-reduced-motion:reduce) { .ps-result .ps-player,.ps-result .ps-play,.ps-result figcaption { transition:none; } }

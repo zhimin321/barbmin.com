@@ -91,21 +91,68 @@
   document.querySelectorAll('#shorts details').forEach(detail => detail.addEventListener('toggle', () => {
     if (!detail.open) detail.querySelectorAll('video').forEach(video => video.pause());
   }));
+  const inlineDesktop = matchMedia('(min-width: 901px)');
   document.querySelectorAll('.ps-player').forEach(player => {
     const video = player.querySelector('video');
     const button = player.querySelector('.ps-play');
     const status = player.querySelector('.ps-play-status');
+    const result = player.closest('.ps-result');
+    let collapse;
+    let playbackRequest = 0;
+    function expand() {
+      if (!result || !inlineDesktop.matches) return;
+      result.classList.add('is-expanded');
+      collapse.hidden = false;
+      button.setAttribute('aria-expanded', 'true');
+    }
+    function contract(restoreFocus = false) {
+      if (!result) return;
+      playbackRequest += 1;
+      video.pause();
+      result.classList.remove('is-expanded');
+      collapse.hidden = true;
+      button.removeAttribute('aria-expanded');
+      button.hidden = false;
+      video.controls = false;
+      video.removeAttribute('tabindex');
+      if (restoreFocus) button.focus({ preventScroll:true });
+    }
+    if (result) {
+      collapse = document.createElement('button');
+      collapse.type = 'button';
+      collapse.className = 'ps-collapse';
+      collapse.textContent = 'Collapse';
+      collapse.setAttribute('aria-label', 'Collapse video');
+      collapse.hidden = true;
+      player.append(collapse);
+      collapse.addEventListener('click', () => contract(true));
+      video.addEventListener('play', expand);
+      video.addEventListener('ended', () => {
+        if (inlineDesktop.matches) contract(player.contains(document.activeElement));
+      });
+      inlineDesktop.addEventListener('change', () => {
+        // Preserve mobile playback; only the desktop enlargement state resets.
+        result.classList.remove('is-expanded');
+        collapse.hidden = true;
+        button.removeAttribute('aria-expanded');
+        if (inlineDesktop.matches && !video.paused) expand();
+      });
+    }
     video.controls = false;
     button.hidden = false;
     button.setAttribute('aria-label', 'Play: ' + video.getAttribute('aria-label'));
     button.addEventListener('click', async () => {
+      const request = ++playbackRequest;
       button.hidden = true;
       status.hidden = true;
+      expand();
       video.controls = true;
       video.tabIndex = 0;
       video.focus({ preventScroll:true });
       try { await video.play(); }
       catch {
+        if (request !== playbackRequest) return;
+        if (result && inlineDesktop.matches) contract();
         button.hidden = false;
         status.hidden = false;
         status.textContent = 'Playback could not start. Please try again or open the recording at full size.';

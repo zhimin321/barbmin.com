@@ -83,3 +83,32 @@ Balanced spacing revision
 - Step 01 section begins at 688px at 1440px width, with its heading visible within
   a 900px-high viewport. Screenshot: balanced-opening.png.
 - Current screenshots are balanced-*.png; compact-* records the previous revision.
+
+Inline video expansion revision
+- Previous balanced version committed first as 0d45cca, per user request.
+- Only the desktop opening video changes: 180px at rest, 220–260px in playback,
+  anchored at its upper right. The grid reserves its expanded footprint.
+- Added breathing room around intro copy and between text and video.
+- Desktop play control is a translucent circular icon with an accessible label.
+- Playback uses the same video element in the page, no overlay or modal.
+- Pause retains the expanded view. Collapse pauses; ending restores compact view.
+- Native playback controls remain available while expanded. Reduced motion disables
+  width transitions. Failed playback recovers the play button with a status message.
+- Verified stable document coordinates for intro, navigation and steps 01/02 during
+  expand/collapse/end at 901, 1024 and 1440px; no content overlap or page overflow.
+- Verified end/replay, panel pause, error recovery and cancellation during loading.
+- At 320/390/768px, mobile layout coordinates match committed CSS and the original
+  200px video and labeled play control remain unchanged; no desktop expansion.
+- Current screenshots: inline-video-idle.png and inline-video-playing.png.
+- New revision left uncommitted for visual review; no push or deployment.
+
+Independent opening section correction
+- Intro copy and result figure now share a semantic ps-opening section.
+- At rest the 180px video and caption fit above a full-width section divider.
+- The opening has a fixed resting media footprint. Only expanded playback extends
+  beneath that divider, within the reserved right-hand workflow gutter.
+- Verified containment at rest, expansion across the divider, no overlap with step
+  01 or step 02, and unchanged article coordinates at 901/1024/1440px.
+- Chapter links remain correctly offset. Mobile document geometry still matches
+  committed CSS at 320/390/768px. No browser JS errors or diff whitespace errors.
+- Updated inline-video-idle.png and inline-video-playing.png show this correction.
