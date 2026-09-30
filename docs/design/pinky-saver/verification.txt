@@ -112,3 +112,41 @@ Independent opening section correction
 - Chapter links remain correctly offset. Mobile document geometry still matches
   committed CSS at 320/390/768px. No browser JS errors or diff whitespace errors.
 - Updated inline-video-idle.png and inline-video-playing.png show this correction.
+
+Step 02 replacement recording
+- Replaced generate.mp4 with the user-provided "02 From text to timed captions.mp4".
+- Preserved the full 8.866667-second sequence, including the Premiere caption-track
+  setup and resulting captions. Original source remains untouched.
+- Crop: 1836x1680 at (1164,180), removing the left desktop/black margin and browser
+  chrome while retaining the preview, import dialog and subtitle timeline.
+- Output: 1224x1120 H.264, CRF 20, faststart, 225398 bytes. Source audio measured
+  silent (-91 dB); the web copy omits that silent track.
+- Poster extracted from the replacement at 1.8 seconds, showing the loaded script.
+- Updated video dimensions, accessible description and caption. Added v=2 media
+  URLs so previously cached assets do not hide the replacement.
+- Removed only step 02's "View recording at full size" link. Step 03 is unchanged.
+- Verified complete playback through the Premiere portion at 320/390/768/1440px,
+  correct intrinsic dimensions and duration, no page overflow, no JS/local HTTP
+  errors, and no full-size recording link in step 02. git diff --check passes.
+- Screenshots: step02-updated-390.png and step02-updated-1440.png.
+
+Step 02 compact recording — 2026-10-01
+- User approved retaining only the first 7.8 seconds of the supplied small.mp4.
+- Removed surrounding black borders. The crop follows the existing scene cut:
+  1510x854 at (1160,324) for frames 0–84, then (1322,324) from frame 85.
+- Exported 1280x724 H.264, CRF 20, faststart, 7.8 seconds, 148581 bytes.
+- The embedded player is now close to 16:9 instead of the preceding near-square
+  recording. Updated poster and v=3 URLs prevent stale-media caching.
+- Kept the previous 8.866667-second, 1224x1120 recording as generate-full.mp4;
+  restored View recording at full size to open it in a new tab.
+- Verified full embedded playback and no overflow at 320/390/768/1440px; verified
+  full-size link and the linked video's dimensions and duration. No JS/HTTP errors.
+- FFmpeg audit found no black intervals and detected full-frame content bounds.
+- Current screenshots: step02-small-390.png and step02-small-1440.png.
+- Original footage untouched. Revision remains uncommitted for review.
+
+Step 02 full recording v2 — 2026-10-01
+- Replaced generate-full.mp4 with “02 From text to timed captions_v2.mp4”.
+- Cropped the left black border: 1834:2172:1166:0; preserved full 10.7-second duration and native cropped resolution, H.264 CRF 20 with faststart. Omitted silent audio.
+- Updated full-size link cache version to v=2. Embedded 7.8-second video and its poster unchanged by this update.
+- Inspected cropped Premiere frame. Browser verification passed: full-size link opens the new 1834×2172 video and plays to completion.

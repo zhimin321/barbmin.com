@@ -90,6 +90,9 @@
 .ps-player { position:relative; }
 .ps-play { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; gap:10px; width:max-content; max-width:90%; min-height:48px; border:1px solid #dce5ed; border-radius:999px; padding:12px 20px; font:500 14px/1.5 Inter,sans-serif; color:#0054c5; background:rgba(255,255,255,.96); box-shadow:0 4px 20px #1726321f; cursor:pointer; }
 .ps-play:hover { background:#e8f5ff; }
+.ps-play-icon { width:48px; min-height:48px; padding:0; gap:0; border-color:transparent; background:rgba(255,255,255,.48); box-shadow:none; color:rgba(17,24,32,.8); transition:background 160ms ease; }
+.ps-play-icon>span:first-child { margin-left:3px; font-size:18px; }
+.ps-play-icon:hover,.ps-play-icon:focus-visible { background:rgba(255,255,255,.86); }
 .ps-main figcaption a { display:inline-flex; align-items:center; min-height:44px; color:var(--ps-blue); }
 .ps-main #shorts .ps-play-status { font-size:13px; }
 
@@ -111,4 +114,4 @@
  .ps-collapse:hover { background:white; }
 }
 @media(max-width:900px) { .ps-collapse { display:none; } }
-@media(prefers-reduced-motion:reduce) { .ps-result .ps-player,.ps-result .ps-play,.ps-result figcaption { transition:none; } }
+@media(prefers-reduced-motion:reduce) { .ps-result .ps-player,.ps-result .ps-play,.ps-result figcaption,.ps-play-icon { transition:none; } }
